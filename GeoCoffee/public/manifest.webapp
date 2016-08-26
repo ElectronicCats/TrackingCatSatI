@@ -1,0 +1,18 @@
+{
+  "name": "Maps Friends",
+  "description": "Encuentra amigos que usan Firefox OS",
+  "launch_path": "/",
+  "icons": {
+    "128": "/img/icon-128.png"
+  },
+  "permissions": {
+    "geolocation":{ 
+      "description": "Requerimos tu posicion en el globo." 
+    }
+  },
+  "developer": {
+    "name": "Open Drain",
+    "url": "http://open-drain.com"
+  },
+  "default_locale": "es"
+}

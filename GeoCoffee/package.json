@@ -1,0 +1,20 @@
+{
+  "name": "Geo-api",
+  "version": "0.0.1-4",
+  "private": true,
+  "scripts": {
+    "start": "coffee app/app.coffee"
+  },
+  "dependencies": {
+    "coffee-script": "*",
+    "express": "3.3.4",
+    "jade": "*",
+    "stylus": "*",
+    "socket.io": "*",
+    "connect-assets": "~2.5.0"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "subdomain": "iddar-geotest.iddar"
+}

@@ -1,0 +1,41 @@
+extends layout
+
+block content
+	div.container
+		
+		div.container-narrow
+			div.masthead
+			ul.nav.nav-pills.pull-right
+				li.active
+					a(href="#") Inicio
+				li
+					a(href="#") Pantalla Completa
+				li
+					a(href="#") Configuración
+
+			h2.muted #{title}.
+		hr
+		
+		div.container-fluid
+			div.row-fluid
+				div.span9
+					div.img-polaroid(id="mapcontiner")
+						div(id="map")
+				div.span3
+
+					div.well.sidebar-nav
+						ul.nav.nav-list
+							li.nav-header
+								| Utilerias
+							li.active
+								a(href="#") Vehículos
+							li
+								a(href="#") Registro
+							li
+								a(href="#") Historial
+							li
+								a(href="#") Error log
+					
+					p.text-center
+						a(href="http://www.w3.org/html/logo/")
+								img(src="http://www.w3.org/html/logo/badge/html5-badge-h-connectivity-css3-semantics-storage.png", width="229", height="64", alt="HTML5 Powered with Connectivity / Realtime, CSS3 / Styling, Semantics, and Offline &amp; Storage", title="HTML5 Powered with Connectivity / Realtime, CSS3 / Styling, Semantics, and Offline &amp; Storage")

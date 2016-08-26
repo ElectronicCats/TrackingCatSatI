@@ -1,0 +1,17 @@
+{
+  "name": "GPSAPI4Sacitec",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "dependencies": {
+    "express": "3.3.4",
+    "jade": "*",
+    "stylus": "*",
+    "socket.io": "*"
+  },
+  "devDependencies": {
+    "nodemon": "*"
+  }
+}
