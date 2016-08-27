@@ -12,7 +12,7 @@
     //tiles = L.tileLayer('http://{s}.tile.cloudmade.com/{key}/997/256/{z}/{x}/{y}.png', {
     tiles = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 18,
-      attribution: 'Map data &copy; 2011 OpenStreetMap contributors, Sacitec &copy; 2013 Iddar Olivares',
+      attribution: 'Map data &copy; 2016 OpenStreetMap contributors, Sacitec &copy; 2016 Electronic Cats',
       key: 'BC9A493B41014CAABB98F0471D759707'
     });
     map.addLayer(tiles);

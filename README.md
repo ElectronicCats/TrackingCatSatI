@@ -13,4 +13,4 @@ Este es un sistema de para el segimiento en estacion terrena del CatSat I en tie
 - CatSat
 - Open Street Map
 
-Gracias @iddar
+Gracias @iddar por el codigo inicial
