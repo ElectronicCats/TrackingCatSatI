@@ -15,7 +15,7 @@ var server = http.createServer(app);
 var io = require('socket.io').listen(server);
 
 //Serial tools
-var serialport = require('serialport');
+var serialport = require('serialport')
 var horaFormat = function(horaString){
 	//054920.000
 	return {
@@ -60,7 +60,7 @@ var gprmcParse = function(gprmcString){
 	}
 }
 
-var port = new serialport.SerialPort('/dev/ttyUSB0', {
+var port = new serialport('/dev/cu.usbmodem1411', {
 	 baudrate: 57600
 	,parser: serialport.parsers.readline('\n')
 });
@@ -106,7 +106,7 @@ io.sockets.on('connection', function(socket){
 			};
 			socket.emit('coords:gps', {
 				 latlng: pos
-				,hh: position.hora.horas 
+				,hh: position.hora.horas
 				,mm: position.hora.minutos
 				,ss: position.hora.segundos
 			});
