@@ -10,58 +10,64 @@ var express = require('express')
   , path = require('path');
 
 var app = express();
-
 var server = http.createServer(app);
 var io = require('socket.io').listen(server);
+var serialport = require('serialport') //Serial tools
 
-//Serial tools
-var serialport = require('serialport')
-var horaFormat = function(horaString){
-	//054920.000
-	return {
-		 horas: horaString.substr(0,2)
-		,minutos: horaString.substr(2,2)
-		,segundos: horaString.substr(4,2)
-	};
-}
 
-var latlonFormat = function(gprmcObj){
-	var lat = parseFloat(gprmcObj.lat.substr(2,gprmcObj.lat.length)) / 60 + parseInt(gprmcObj.lat.substr(0,2));
-	var lon = parseFloat(gprmcObj.lon.substr(3,gprmcObj.lon.length)) / 60 + parseInt(gprmcObj.lon.substr(0,3));
+// var horaFormat = function(horaString){
+// 	//054920.000
+// 	return {
+// 		 horas: horaString.substr(0,2)
+// 		,minutos: horaString.substr(2,2)
+// 		,segundos: horaString.substr(4,2)
+// 	};
+// }
 
-	if(gprmcObj.clon == 'W'){
-		lon = lon * -1;
-	}
-	if(gprmcObj.clat == 'S'){
-		lat = lat * -1;
-	}
+// var latlonFormat = function(gprmcObj){
+// 	var lat = parseFloat(gprmcObj.lat.substr(2,gprmcObj.lat.length)) / 60 + parseInt(gprmcObj.lat.substr(0,2));
+// 	var lon = parseFloat(gprmcObj.lon.substr(3,gprmcObj.lon.length)) / 60 + parseInt(gprmcObj.lon.substr(0,3));
+//
+// 	if(gprmcObj.clon == 'W'){
+// 		lon = lon * -1;
+// 	}
+// 	if(gprmcObj.clat == 'S'){
+// 		lat = lat * -1;
+// 	}
+//
+// 	return {
+// 		 lat: lat
+// 		,lon: lon
+// 		,hora: horaFormat(gprmcObj.hora)
+// 		,velocidad: parseFloat(gprmcObj.vel) * 1.852 //Velocidad de nudos a Km
+// 	}
+// }
 
-	return {
-		 lat: lat
-		,lon: lon
-		,hora: horaFormat(gprmcObj.hora)
-		,velocidad: parseFloat(gprmcObj.vel) * 1.852 //Velocidad de nudos a Km
-	}
-}
 
-var gprmcParse = function(gprmcString){
-	var items = gprmcString.split(',');
+var stringParse = function(recvString){
+var items = recvString.split(',');
 	return {
 		 id:  items[0]
-		,hora: items[1]
-		,estado: items[2]
-		,lat: items[3]
-		,clat: items[4]
-		,lon: items[5]
-		,clon: items[6]
-		,vel: items[7]
-		,curso: items[8]
-		,fecha: items[9]
+		,temp1: items[1]
+		,hum: items[2]
+		,temp2: items[3]
+		,mx: items[4]
+		,my: items[5]
+		,mz: items[6]
+		,ax: items[7]
+		,ay: items[8]
+		,az: items[9]
+		,gx: items[10]
+		,gy: items[11]
+		,gz: items[12]
+		,lat: items[13]
+		,lon: items[14]
 	}
 }
 
-var port = new serialport('/dev/cu.usbmodem1411', {
-	 baudrate: 57600
+// var port = new serialport('/dev/cu.usbmodem1411', {
+var port = new serialport('COM20', {
+	 baudrate: 9600
 	,parser: serialport.parsers.readline('\n')
 });
 
@@ -97,21 +103,23 @@ io.sockets.on('connection', function(socket){
 	socket.emit('news', { hello: 'world' });
 
 	port.on('data', function(line){
-		if( line.search("GPRMC") == 1 ) {
-			var gprmcObj = gprmcParse(line);
-			var position = latlonFormat(gprmcObj);
+//		if( line.search("A1 ") == 1 ) {
+			var gprmcObj = stringParse(line);
 			var pos = {
-				 lat: position.lat
-				,lng: position.lon
+				 lat: gprmcObj.lat
+				,lng: gprmcObj.lon
 			};
-			socket.emit('coords:gps', {
+
+		socket.emit('coords:gps', {
 				 latlng: pos
-				,hh: position.hora.horas
-				,mm: position.hora.minutos
-				,ss: position.hora.segundos
-			});
-		}
-	});
+				//,hh: position.hora.horas
+				//,mm: position.hora.minutos
+				//,ss: position.hora.segundos
+			}); //emit
+
+	//	} // if
+
+	}); //port on
 
 });
 
