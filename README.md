@@ -1,15 +1,16 @@
-# Sistema de localización GPS + RF
+# Tracking CatSat I
 
-Este es un sistema de para el segimiento de vehiculos en tiempo real por medio de GPS y una red de radio frecuencia.
+Este es un sistema de para el segimiento en estacion terrena del CatSat I en tiempo real por medio de GPS y una red de radio frecuencia.
 
 
 ## Tecnologias del pryecto.
 
 - Node.js
 - Socket.io
-- xBee Pro 900Mhz
+- Lora 915Mhz
 - Stylus
 - Jade
-- Atmega uC
-- GPS Faxtra
+- CatSat
 - Open Street Map
+
+Gracias @iddar
