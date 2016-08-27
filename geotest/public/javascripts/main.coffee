@@ -7,11 +7,12 @@ onScript = ->
 		zoom:14
 
 	# 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-	tiles = L.tileLayer 'http://{s}.tile.cloudmade.com/{key}/997/256/{z}/{x}/{y}.png',
+	#tiles = L.tileLayer 'http://{s}.tile.cloudmade.com/{key}/997/256/{z}/{x}/{y}.png',
+	tiles = L.tileLayer 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
     	maxZoom: 18
     	attribution: 'Map data &copy; 2011 OpenStreetMap contributors, Sacitec &copy; 2013 Iddar Olivares'
     	key: 'BC9A493B41014CAABB98F0471D759707'
-	
+
 	#Agrego la capa de tiles al mapa
 	map.addLayer tiles
 	map.locate { enableHighAccuracy: true }
@@ -44,7 +45,7 @@ onScript = ->
 
 	#Espero el evento 'locationfound' con laposicion del usuario
 	map.on 'locationfound', onLocation
-	#Espero la respuesta del socket 'coords:user' 
+	#Espero la respuesta del socket 'coords:user'
 	socket.on 'coords:user', onRecive
 
 	gps = L.marker [19.190278, -96.153333]
