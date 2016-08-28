@@ -65,8 +65,8 @@ var items = recvString.split(',');
 	}
 }
 
-// var port = new serialport('/dev/cu.usbmodem1411', {
-var port = new serialport('COM20', {
+var port = new serialport('/dev/cu.usbmodem1411', {
+//var port = new serialport('COM20', {
 	 baudrate: 9600
 	,parser: serialport.parsers.readline('\n')
 });

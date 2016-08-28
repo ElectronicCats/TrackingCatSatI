@@ -56,7 +56,7 @@ function onScript(){
 		//gps.bindPopup( "Hora " + data.hh + ":" + data.mm + ":" + data.ss).openPopup();
 		gps.bindPopup( "CatSat").openPopup();
 		var polyline = L.polyline(posizioni, {color: 'red'}).addTo(mymap);
-		//mymap.fitBounds(polyline.getBounds());
+		mymap.fitBounds(polyline.getBounds());
 		//socket.emit('my other event', { my: 'data' });
 	});
 
