@@ -4,7 +4,7 @@ Este es un sistema para el seguimiento en estación terrena del CatSat I en tiem
 
 ##Ejemplos
 
-- ClientAPI: Ejmplo basico de parseo
+- ClientAPI: Ejemplo basico de parseo
 - geotest: Ejemplo de OpenStreetMap
 - node-mea: Ejemplo basico de lectura datos en bruto del GPS por puerto Serial
 - Serial Node: Ejemplo basico de lectura del puerto Serial
@@ -21,3 +21,7 @@ Este es un sistema para el seguimiento en estación terrena del CatSat I en tiem
 - Open Street Map
 
 Gracias @iddar por el codigo inicial
+
+Electronic Cats invests time and resources providing this open source design, please support Electronic Cats and open-source hardware by purchasing products from Electronic Cats!
+
+Released under an GNU AGPL v3.0 license. See the LICENSE file for more information.
