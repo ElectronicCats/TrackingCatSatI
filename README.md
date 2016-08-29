@@ -24,4 +24,4 @@ Gracias @iddar por el codigo inicial
 
 Electronic Cats invests time and resources providing this open source design, please support Electronic Cats and open-source hardware by purchasing products from Electronic Cats!
 
-Released under an GNU AGPL v3.0 license. See the LICENSE file for more information.
+Released under an MIT license. See the LICENSE file for more information.
