@@ -14,36 +14,6 @@ var server = http.createServer(app);
 var io = require('socket.io').listen(server);
 var serialport = require('serialport') //Serial tools
 
-
-// var horaFormat = function(horaString){
-// 	//054920.000
-// 	return {
-// 		 horas: horaString.substr(0,2)
-// 		,minutos: horaString.substr(2,2)
-// 		,segundos: horaString.substr(4,2)
-// 	};
-// }
-
-// var latlonFormat = function(gprmcObj){
-// 	var lat = parseFloat(gprmcObj.lat.substr(2,gprmcObj.lat.length)) / 60 + parseInt(gprmcObj.lat.substr(0,2));
-// 	var lon = parseFloat(gprmcObj.lon.substr(3,gprmcObj.lon.length)) / 60 + parseInt(gprmcObj.lon.substr(0,3));
-//
-// 	if(gprmcObj.clon == 'W'){
-// 		lon = lon * -1;
-// 	}
-// 	if(gprmcObj.clat == 'S'){
-// 		lat = lat * -1;
-// 	}
-//
-// 	return {
-// 		 lat: lat
-// 		,lon: lon
-// 		,hora: horaFormat(gprmcObj.hora)
-// 		,velocidad: parseFloat(gprmcObj.vel) * 1.852 //Velocidad de nudos a Km
-// 	}
-// }
-
-
 var stringParse = function(recvString){
 var items = recvString.split(',');
 	return {
@@ -65,7 +35,7 @@ var items = recvString.split(',');
 	}
 }
 
-var port = new serialport('/dev/cu.usbmodem1411', {
+var port = new serialport('/dev/cu.usbmodem1421', {
 //var port = new serialport('COM20', {
 	 baudrate: 9600
 	,parser: serialport.parsers.readline('\n')
@@ -92,8 +62,6 @@ app.get('/', routes.index);
 app.get('/users', user.list);
 
 
-
-
 io.sockets.on('connection', function(socket){
 	socket.on('coords:me', function(data){
 		console.log(data);
@@ -103,7 +71,6 @@ io.sockets.on('connection', function(socket){
 	socket.emit('news', { hello: 'world' });
 
 	port.on('data', function(line){
-//		if( line.search("A1 ") == 1 ) {
 			var gprmcObj = stringParse(line);
 			var pos = {
 				 lat: gprmcObj.lat
