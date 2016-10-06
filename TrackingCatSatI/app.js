@@ -36,7 +36,7 @@ var items = recvString.split(',');
 	}
 }
 
-var port = new serialport('/dev/cu.Bluetooth-Incoming-Port', {
+var port = new serialport('/dev/cu.usbmodem1411', {
 //var port = new serialport('COM20', {
 	 baudrate: 9600
 	,parser: serialport.parsers.readline('\n')
@@ -69,25 +69,29 @@ io.sockets.on('connection', function(socket){
 		socket.broadcast.emit('coords:user', data);
 	});
 
-	socket.emit('news', { hello: 'world' });
+	//socket.emit('news', { hello: 'world' });
 
 	port.on('data', function(line){
 			var gprmcObj = stringParse(line);
 			var pos = {
-				 lat: gprmcObj.lat
-				,lng: gprmcObj.lon
+				 lat: gprmcObj.lat,
+         lng: gprmcObj.lon
+			};
+
+      var sen = {
+        temp: gprmcObj.temp1,
+        hume: gprmcObj.hum
 			};
 
     console.log(gprmcObj);
 
 		socket.emit('coords:gps', {
 				 latlng: pos
-				//,hh: position.hora.horas
-				//,mm: position.hora.minutos
-				//,ss: position.hora.segundos
 			}); //emit
 
-	//	} // if
+      socket.emit('datos:sensors', {
+  				 sensores: sen
+  			}); //emit
 
 	}); //port on
 

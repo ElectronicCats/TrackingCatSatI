@@ -34,6 +34,19 @@ function onScript(){
 		computer.bindPopup("Usuarios aqui");
 	}
 
+var gageTemp	=0;
+var gageHum	= 0;
+
+	socket.on('datos:sensors', function (data) {
+		console.log(data);
+		var sen = data.sensores;
+		gageTemp	= sen.temp;
+		Temperatura.refresh(gageTemp);
+		gageHum	= sen.hume;
+		Humedad.refresh(gageHum);
+
+		
+	});
 
 	function onlocation(position){
 		//console.log(position);
@@ -54,30 +67,29 @@ function onScript(){
 		var pos = data.latlng;
 		gps.setLatLng([pos.lat,pos.lng]).update();
 		posizioni.push(data.latlng);
-		//gps.bindPopup( "Hora " + data.hh + ":" + data.mm + ":" + data.ss).openPopup();
 		gps.bindPopup( "CatSat").openPopup();
 		var polyline = L.polyline(posizioni, {color: 'red'}).addTo(mymap);
 		mymap.fitBounds(polyline.getBounds());
-		//socket.emit('my other event', { my: 'data' });
+
 	});
 
-	var g = new JustGage({
+	var Temperatura = new JustGage({
 		id: "gauge",
-		value: 67,
+		value: gageTemp,
 		min: 0,
 		max: 100,
 		title: "Temperatura"
 	});
 
-	var g = new JustGage({
+	var Humedad = new JustGage({
     id: "gauge1",
-    value: 67,
+    value: gageHum,
     min: 0,
     max: 100,
     title: "Humedad"
   });
 
-	var g = new JustGage({
+	var Presion = new JustGage({
     id: "gauge2",
     value: 67,
     min: 0,
@@ -85,20 +97,20 @@ function onScript(){
     title: "Presion"
   });
 
-	var g = new JustGage({
+	var Temperatura2 = new JustGage({
 		id: "gauge3",
 		value: 67,
 		min: 0,
 		max: 100,
-		title: "Presion"
+		title: "Temperatura 2"
 	});
 
-	var g = new JustGage({
+	var Aceleracion = new JustGage({
 		id: "gauge4",
 		value: 67,
 		min: 0,
 		max: 100,
-		title: "Presion"
+		title: "Aceleracion"
 	});
 
 
