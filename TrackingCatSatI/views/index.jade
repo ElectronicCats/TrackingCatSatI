@@ -2,7 +2,7 @@ extends layout
 
 block content
 	div.container
-		
+
 		div.container-narrow
 			div.masthead
 			ul.nav.nav-pills.pull-right
@@ -15,7 +15,7 @@ block content
 
 			h2.muted #{title}.
 		hr
-		
+
 		div.container-fluid
 			div.row-fluid
 				div.span9
@@ -25,16 +25,13 @@ block content
 					div.well.sidebar-nav
 						ul.nav.nav-list
 							li.nav-header
-								| Utilerias
-							li.active
-								a(href="#") Vehículos
-							li
-								a(href="#") Registro
-							li
-								a(href="#") Historial
-							li
-								a(href="#") Error log
-					
+							#gauge(style='width:100px; height:80px')
+							li.active(id="gauge1")
+							li(id="gauge2")
+							li(id="gauge3")
+							li(id="gauge4")
+
+
 					p.text-center
 						a(href="http://www.w3.org/html/logo/")
 								img(src="http://www.w3.org/html/logo/badge/html5-badge-h-connectivity-css3-semantics-storage.png", width="229", height="64", alt="HTML5 Powered with Connectivity / Realtime, CSS3 / Styling, Semantics, and Offline &amp; Storage", title="HTML5 Powered with Connectivity / Realtime, CSS3 / Styling, Semantics, and Offline &amp; Storage")

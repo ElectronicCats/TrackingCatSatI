@@ -13,6 +13,7 @@ function onScript(){
 		maxZoom: 18,
 		attribution: 'Map data &copy; 2016 OpenStreetMap contributors, Sacitec &copy; 2016 Electronic Cats',
 		key: 'BC9A493B41014CAABB98F0471D759707'
+
 	});
 
 	mymap.addLayer(tiles);
@@ -59,6 +60,47 @@ function onScript(){
 		mymap.fitBounds(polyline.getBounds());
 		//socket.emit('my other event', { my: 'data' });
 	});
+
+	var g = new JustGage({
+		id: "gauge",
+		value: 67,
+		min: 0,
+		max: 100,
+		title: "Temperatura"
+	});
+
+	var g = new JustGage({
+    id: "gauge1",
+    value: 67,
+    min: 0,
+    max: 100,
+    title: "Humedad"
+  });
+
+	var g = new JustGage({
+    id: "gauge2",
+    value: 67,
+    min: 0,
+    max: 100,
+    title: "Presion"
+  });
+
+	var g = new JustGage({
+		id: "gauge3",
+		value: 67,
+		min: 0,
+		max: 100,
+		title: "Presion"
+	});
+
+	var g = new JustGage({
+		id: "gauge4",
+		value: 67,
+		min: 0,
+		max: 100,
+		title: "Presion"
+	});
+
 
 }
 
