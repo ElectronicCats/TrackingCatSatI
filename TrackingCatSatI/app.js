@@ -20,18 +20,19 @@ var items = recvString.split(',');
 		 id:  items[0]
 		,temp1: items[1]
 		,hum: items[2]
-		,temp2: items[3]
-		,mx: items[4]
-		,my: items[5]
-		,mz: items[6]
-		,ax: items[7]
-		,ay: items[8]
-		,az: items[9]
-		,gx: items[10]
-		,gy: items[11]
-		,gz: items[12]
-		,lat: items[13]
-		,lon: items[14]
+    ,pres: items[3]
+		,temp2: items[4]
+		,mx: items[5]
+		,my: items[6]
+		,mz: items[7]
+		,ax: items[8]
+		,ay: items[9]
+		,az: items[10]
+		,gx: items[11]
+		,gy: items[12]
+		,gz: items[13]
+		,lat: items[14]
+		,lon: items[15]
 	}
 }
 
@@ -76,6 +77,8 @@ io.sockets.on('connection', function(socket){
 				 lat: gprmcObj.lat
 				,lng: gprmcObj.lon
 			};
+
+    console.log(gprmcObj);
 
 		socket.emit('coords:gps', {
 				 latlng: pos
