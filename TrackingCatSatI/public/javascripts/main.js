@@ -36,16 +36,27 @@ function onScript(){
 
 var gageTemp	=0;
 var gageHum	= 0;
+var gageTemp2	=0;
+var gagePress	= 0;
 
 	socket.on('datos:sensors', function (data) {
 		console.log(data);
 		var sen = data.sensores;
-		gageTemp	= sen.temp;
-		Temperatura.refresh(gageTemp);
+		gageTemp2	= sen.temp2;
+
 		gageHum	= sen.hume;
+
+		gageTemp	= sen.temp;
+
+		gagePress	= sen.press;
+
+		Temperatura.refresh(gageTemp);
 		Humedad.refresh(gageHum);
 
-		
+		Presion.refresh(gagePress);
+		Temperatura2.refresh(gageTemp2);
+
+
 	});
 
 	function onlocation(position){
@@ -91,26 +102,18 @@ var gageHum	= 0;
 
 	var Presion = new JustGage({
     id: "gauge2",
-    value: 67,
+    value: gagePress,
     min: 0,
-    max: 100,
+    max: 1000,
     title: "Presion"
   });
 
 	var Temperatura2 = new JustGage({
 		id: "gauge3",
-		value: 67,
+		value: gageTemp2,
 		min: 0,
 		max: 100,
 		title: "Temperatura 2"
-	});
-
-	var Aceleracion = new JustGage({
-		id: "gauge4",
-		value: 67,
-		min: 0,
-		max: 100,
-		title: "Aceleracion"
 	});
 
 

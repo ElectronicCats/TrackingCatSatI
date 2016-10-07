@@ -36,7 +36,7 @@ var items = recvString.split(',');
 	}
 }
 
-var port = new serialport('/dev/cu.usbmodem1411', {
+var port = new serialport('/dev/cu.usbserial-A5027YJI', {
 //var port = new serialport('COM20', {
 	 baudrate: 9600
 	,parser: serialport.parsers.readline('\n')
@@ -80,7 +80,9 @@ io.sockets.on('connection', function(socket){
 
       var sen = {
         temp: gprmcObj.temp1,
-        hume: gprmcObj.hum
+        hume: gprmcObj.hum,
+        press: gprmcObj.pres,
+        temp2: gprmcObj.temp2,
 			};
 
     console.log(gprmcObj);
