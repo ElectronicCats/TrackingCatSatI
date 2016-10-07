@@ -87,8 +87,8 @@ var gagePress	= 0;
 	var Temperatura = new JustGage({
 		id: "gauge",
 		value: gageTemp,
-		min: 0,
-		max: 100,
+		min: -60,
+		max: 90,
 		title: "Temperatura"
 	});
 
@@ -103,16 +103,16 @@ var gagePress	= 0;
 	var Presion = new JustGage({
     id: "gauge2",
     value: gagePress,
-    min: 0,
-    max: 1000,
+    min: 250,
+    max: 1100,
     title: "Presion"
   });
 
 	var Temperatura2 = new JustGage({
 		id: "gauge3",
 		value: gageTemp2,
-		min: 0,
-		max: 100,
+		min: -60,
+		max: 90,
 		title: "Temperatura 2"
 	});
 
