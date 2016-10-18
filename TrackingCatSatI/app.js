@@ -8,6 +8,7 @@ var express = require('express')
   , user = require('./routes/user')
   , http = require('http')
   , path = require('path');
+const fs = require('fs');
 
 var app = express();
 var server = http.createServer(app);
@@ -36,7 +37,7 @@ var items = recvString.split(',');
 	}
 }
 
-var port = new serialport('/dev/cu.usbserial-A5027YJI', {
+var port = new serialport('/dev/cu.usbserial-A50285BI', {
 //var port = new serialport('COM20', {
 	 baudrate: 9600
 	,parser: serialport.parsers.readline('\n')
@@ -85,6 +86,7 @@ io.sockets.on('connection', function(socket){
         temp2: gprmcObj.temp2,
 			};
 
+
     console.log(gprmcObj);
 
 		socket.emit('coords:gps', {
@@ -95,6 +97,23 @@ io.sockets.on('connection', function(socket){
   				 sensores: sen
   			}); //emit
 
+      fs.open('info.txt', 'wx', (err, fd) => {
+        if (err) {
+          if (err.code === "EEXIST") {
+            fs.appendFile('info.txt', '\n'+line, (err) => {
+              if (err) throw err;
+              console.log('String agregada');
+            });
+            return;
+          } else {
+      throw err;
+    }
+  }
+  fs.writeFile('info.txt', line, (err) => {
+    if (err) throw err;
+    console.log('String guardado');
+      });//write file
+    });
 	}); //port on
 
 });
