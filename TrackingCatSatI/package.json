@@ -8,9 +8,10 @@
   "dependencies": {
     "express": "3.3.4",
     "jade": "*",
-    "stylus": "*",
+    "mathjs": "^3.6.0",
+    "serialport": "*",
     "socket.io": "*",
-    "serialport": "*"
+    "stylus": "*"
   },
   "devDependencies": {
     "nodemon": "*"

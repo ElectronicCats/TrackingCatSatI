@@ -86,7 +86,7 @@ io.sockets.on('connection', function(socket){
         temp2: gprmcObj.temp2,
 			};
 
-
+    console.log(-8005*math.log((gprmcObj.press/818.15), 2.718281828459));
     console.log(gprmcObj);
 
 		socket.emit('coords:gps', {
