@@ -10,6 +10,8 @@ var express = require('express')
   , path = require('path');
 const fs = require('fs');
 
+var math = require('mathjs');
+
 var app = express();
 var server = http.createServer(app);
 var io = require('socket.io').listen(server);
@@ -86,9 +88,9 @@ io.sockets.on('connection', function(socket){
         temp2: gprmcObj.temp2,
 			};
 
-    console.log(-8005*math.log((gprmcObj.press/818.15), 2.718281828459));
-    console.log(gprmcObj);
 
+    console.log(gprmcObj);
+    console.log(-8005*(math.log(sen.press/818.15, 2.7182)));
 		socket.emit('coords:gps', {
 				 latlng: pos
 			}); //emit
