@@ -10,6 +10,8 @@ var express = require('express')
   , path = require('path');
 const fs = require('fs');
 
+var math = require('mathjs');
+
 var app = express();
 var server = http.createServer(app);
 var io = require('socket.io').listen(server);
