@@ -14,6 +14,7 @@ var app = express();
 var server = http.createServer(app);
 var io = require('socket.io').listen(server);
 var serialport = require('serialport') //Serial tools
+var math = require('mathjs')
 
 var stringParse = function(recvString){
 var items = recvString.split(',');
@@ -86,9 +87,21 @@ io.sockets.on('connection', function(socket){
         temp2: gprmcObj.temp2,
 			};
 
-    console.log(-8005*math.log((gprmcObj.press/818.15), 2.718281828459));
-    console.log(gprmcObj);
+      /* Hyposometric formula:                      */
+      /*                                           */
+      /*     ((P0/P)^(1/5.257) - 1) * (T + 273.15)  */
+      /* h = -------------------------------------  */
+      /*                   0.0065                   */
+      /*                                            */
+      /* where: h   = height (in meters)            */
+      /*        P0  = sea-level pressure (in hPa)   */
+      /*        P   = atmospheric pressure (in hPa) */
+      /*        T   = temperature (in °C)           */
+      
+      var seaLevel=1013.25;
+      console.log(((math.pow((seaLevel/sen.press),0.190223)-1.0)*(parseFloat(sen.temp2)+273.15))/0.0065);
 
+    console.log(gprmcObj);
 		socket.emit('coords:gps', {
 				 latlng: pos
 			}); //emit
