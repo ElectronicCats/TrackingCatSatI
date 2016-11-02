@@ -21,7 +21,7 @@ var math = require('mathjs')
 var stringParse = function(recvString){
 var items = recvString.split(',');
 	return {
-		 id:  items[0]
+		 ide:  items[0]
 		,temp1: items[1]
 		,hum: items[2]
     ,pres: items[3]
@@ -78,6 +78,7 @@ io.sockets.on('connection', function(socket){
 	port.on('data', function(line){
 			var gprmcObj = stringParse(line);
 			var pos = {
+          di:gprmcObj.ide,
 				 lat: gprmcObj.lat,
          lng: gprmcObj.lon
 			};
@@ -99,7 +100,7 @@ io.sockets.on('connection', function(socket){
       /*        P0  = sea-level pressure (in hPa)   */
       /*        P   = atmospheric pressure (in hPa) */
       /*        T   = temperature (in °C)           */
-      
+
       var seaLevel=1013.25;
       console.log(((math.pow((seaLevel/sen.press),0.190223)-1.0)*(parseFloat(sen.temp2)+273.15))/0.0065);
 
