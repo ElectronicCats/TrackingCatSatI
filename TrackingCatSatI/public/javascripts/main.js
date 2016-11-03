@@ -83,7 +83,7 @@ var gagePress	= 0;
 	var co3 = L.marker([21.855147, -102.290729]);
 	var co4 = L.marker([21.855147, -102.290729]);
 	var itm = L.marker([21.855147, -102.290729]);
-	var prr = L.marker([21.855147, -102.290729]);
+	var c84 = L.marker([21.855147, -102.290729]);
 	var c95 = L.marker([21.855147, -102.290729]);
 	var c68 = L.marker([21.855147, -102.290729]);
 	var a1 = L.marker([21.855147, -102.290729]);
@@ -102,7 +102,7 @@ var gagePress	= 0;
 	mymap.addLayer(co3);
 	mymap.addLayer(co4);
 	mymap.addLayer(itm);
-	mymap.addLayer(prr); //284
+	mymap.addLayer(c84);
 	mymap.addLayer(c95);
 	mymap.addLayer(c68);
 	mymap.addLayer(a1);
@@ -120,7 +120,7 @@ var gagePress	= 0;
 	var posizionco3 = [];
 	var posizionco4 = [];
 	var posizionitm = [];
-	var posizionprr = [];
+	var posizionc84 = [];
 	var posizionc95 = [];
 	var posizionc68 = [];
 	var posiziontih = [];
@@ -242,7 +242,7 @@ var gagePress	= 0;
 				var polyline = L.polyline(posizionitm, {color: 'yellow'}).addTo(mymap);
 				mymap.fitBounds(polyline.getBounds());
 			}
-			if(pos.di == "PRR")
+			if(pos.di == "284")
 			{
 				prr.setLatLng([pos.lat,pos.lng]).update();
 				posizionprr.push(data.latlng);
@@ -271,7 +271,7 @@ var gagePress	= 0;
 				a1.setLatLng([pos.lat,pos.lng]).update();
 				posiziontih.push(data.latlng);
 				a1.bindPopup(pos.di).openPopup();
-				var polyline = L.polyline(posiziona1, {color: 'red'}).addTo(mymap);
+				var polyline = L.polyline(posiziona1, {color: 'pink'}).addTo(mymap);
 				mymap.fitBounds(polyline.getBounds());
 			}
 
