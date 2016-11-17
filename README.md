@@ -1,6 +1,6 @@
-# Tracking CatSat I
+# Multi Tracking CatSat I 
 
-Este es un sistema para el seguimiento en estación terrena del CatSat I en tiempo real por medio de GPS y una red de radio frecuencia.
+Este es un sistema para el seguimiento en estación terrena de diversos CatSat I en tiempo real por medio de GPS y una red de radio frecuencia.
 
 ##Ejemplos
 
