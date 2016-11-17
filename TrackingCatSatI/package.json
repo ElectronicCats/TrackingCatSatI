@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "express": "3.3.4",
-    "jade": "*",
+    "pug": "*",
     "mathjs": "^3.6.0",
     "serialport": "*",
     "socket.io": "*",
