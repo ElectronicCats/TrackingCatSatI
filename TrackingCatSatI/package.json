@@ -11,7 +11,8 @@
     "mathjs": "^3.6.0",
     "serialport": "*",
     "socket.io": "*",
-    "stylus": "*"
+    "stylus": "*",
+    "jade": "*"
   },
   "devDependencies": {
     "nodemon": "*"
