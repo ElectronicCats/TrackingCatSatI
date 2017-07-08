@@ -34,27 +34,33 @@ function onScript(){
 		computer.bindPopup("Usuarios aqui");
 	}
 
-var gageTemp	=0;
 var gageHum	= 0;
-var gageTemp2	=0;
 var gagePress	= 0;
+var gageTemp	=0;
+var gageAlt = 0;
+var gageVel = 0;
+var gageSsid	=0;
+
 
 	socket.on('datos:sensors', function (data) {
 		console.log(data);
 		var sen = data.sensores;
-		gageTemp2	= sen.temp2;
-
 		gageHum	= sen.hume;
-
-		gageTemp	= sen.temp;
-
 		gagePress	= sen.press;
+		gageTemp	= sen.temp;
+		gageAlt = sen.alt;
+		gageVel = sen.vel;
+		gageSsid	= sen.ssid;
 
-		Temperatura.refresh(gageTemp);
+
+
 		Humedad.refresh(gageHum);
-
 		Presion.refresh(gagePress);
-		Temperatura2.refresh(gageTemp2);
+		Temperatura.refresh(gageTemp);
+		Altura.refresh(gageAlt);
+		Velocidad.refresh(gageVel);
+		rssid.refresh(gageSsid);
+
 
 
 	});
@@ -84,16 +90,10 @@ var gagePress	= 0;
 
 	});
 
-	var Temperatura = new JustGage({
-		id: "gauge",
-		value: gageTemp,
-		min: -60,
-		max: 90,
-		title: "Temperatura"
-	});
+
 
 	var Humedad = new JustGage({
-    id: "gauge1",
+    id: "gauge",
     value: gageHum,
     min: 0,
     max: 100,
@@ -101,21 +101,44 @@ var gagePress	= 0;
   });
 
 	var Presion = new JustGage({
-    id: "gauge2",
+    id: "gauge1",
     value: gagePress,
     min: 250,
     max: 1100,
     title: "Presion"
   });
 
-	var Temperatura2 = new JustGage({
-		id: "gauge3",
-		value: gageTemp2,
+	var Temperatura = new JustGage({
+		id: "gauge2",
+		value: gageTemp,
 		min: -60,
 		max: 90,
-		title: "Temperatura 2"
+		title: "Temperatura"
 	});
 
+	var Altura = new JustGage({
+		id: "gauge3",
+		value: gageAlt,   //x
+		min: 1000,
+		max: 30000,
+		title: "Altura"
+	});
+
+	var Velocidad = new JustGage({
+		id: "gauge4",
+		value: gageVel,   //x
+		min: 0,
+		max: 90,
+		title: "Velocidad m/s"
+	});
+
+	var rssid = new JustGage({
+		id: "gauge5",
+		value: gageSsid,   //x
+		min: -160,
+		max: -20,
+		title: "RSSID"
+	});
 
 }
 
