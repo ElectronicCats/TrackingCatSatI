@@ -7,6 +7,18 @@
   height: 500px;
   max-width: 100% !important;
 }
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.image-container {
+  width: 150px;
+  height: 41px;
+}
+#hacedores-logo {
+  margin-top: 30px;
+}
 .sidebar-nav {
   padding: 9px 0;
 }

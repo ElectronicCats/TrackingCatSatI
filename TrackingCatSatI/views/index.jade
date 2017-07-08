@@ -3,17 +3,12 @@ extends layout
 block content
 	div.container
 
-		div.container-narrow
-			div.masthead
-			ul.nav.nav-pills.pull-right
-				li.active
-					a(href="#") Inicio
-				li
-					a(href="#") Pantalla Completa
-				li
-					a(href="#") Configuración
-
+		div.header-container
+			div.image-container
+				img(src='assets/intel_logo.png')
 			h2.muted #{title}.
+			div#hacedores-logo.image-container
+				img(src='assets/hacedores_logo.png')
 		hr
 
 		div.container-fluid
