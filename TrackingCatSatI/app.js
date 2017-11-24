@@ -67,7 +67,8 @@ io.sockets.on('connection', function(socket){
 	//socket.emit('news', { hello: 'world' });
 
 	port.on('data', function(line){
-			var gprmcObj = stringParse(line);
+      var today = new Date();
+      var gprmcObj = stringParse(line);
 			var pos = {
 				 lat: gprmcObj.lat,
          lng: gprmcObj.lon
@@ -109,7 +110,8 @@ io.sockets.on('connection', function(socket){
       fs.open('info.txt', 'wx', (err, fd) => {
         if (err) {
           if (err.code === "EEXIST") {
-            fs.appendFile('info.txt', '\n'+line, (err) => {
+            //fs.appendFile('info.txt', '\n'+line, (err) => {
+            fs.appendFile('info.txt', '\n'+ today + line, (err) => {
               if (err) throw err;
               console.log('String agregada');
             });
@@ -118,7 +120,7 @@ io.sockets.on('connection', function(socket){
       throw err;
     }
   }
-  fs.writeFile('info.txt', line, (err) => {
+  fs.writeFile('info.txt', today + line, (err) => { 
     if (err) throw err;
     console.log('String guardado');
       });//write file
