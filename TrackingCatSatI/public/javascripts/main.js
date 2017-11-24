@@ -34,27 +34,32 @@ function onScript(){
 		computer.bindPopup("Usuarios aqui");
 	}
 
-var gageTemp	=0;
-var gageHum	= 0;
-var gageTemp2	=0;
-var gagePress	= 0;
+	var gageTemp	=0;
+	var gageHum	= 0;
+	var gageSsid	=0;
+	var gagePress	= 0;
+	var gageAlt =0;
+	var gageVel=0;
 
 	socket.on('datos:sensors', function (data) {
 		console.log(data);
 		var sen = data.sensores;
-		gageTemp2	= sen.temp2;
 
 		gageHum	= sen.hume;
-
-		gageTemp	= sen.temp;
-
 		gagePress	= sen.press;
+		gageTemp	= sen.temp;
+		gageAlt	=	sen.alt;
+		gageVel	= sen.vel;
+		gageSsid	=	sen.ssid;
+
 
 		Temperatura.refresh(gageTemp);
 		Humedad.refresh(gageHum);
 
 		Presion.refresh(gagePress);
-		Temperatura2.refresh(gageTemp2);
+		Ssid.refresh(gageSsid);
+		Altura.refresh(gageAlt);
+		Velocidad.refresh(gageVel);
 
 
 	});
@@ -108,12 +113,28 @@ var gagePress	= 0;
     title: "Presion"
   });
 
-	var Temperatura2 = new JustGage({
+	var Ssid = new JustGage({
 		id: "gauge3",
-		value: gageTemp2,
-		min: -60,
-		max: 90,
-		title: "Temperatura 2"
+		value: gageSsid,
+		min: -150,
+		max: 10,
+		title: "SSID"
+	});
+
+	var Altura = new JustGage({
+		id: "gauge4",
+		value: gageAlt,
+		min: 0,
+		max: 22000,
+		title: "Altura"
+	});
+
+	var Velocidad = new JustGage({
+		id: "gauge5",
+		value: gageVel,
+		min: 0,
+		max: 50,
+		title: "Velocidad"
 	});
 
 

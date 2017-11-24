@@ -20,27 +20,20 @@ var stringParse = function(recvString){
 var items = recvString.split(',');
 	return {
 		 id:  items[0]
-		,temp1: items[1]
-		,hum: items[2]
-    ,pres: items[3]
-		,temp2: items[4]
-		,mx: items[5]
-		,my: items[6]
-		,mz: items[7]
-		,ax: items[8]
-		,ay: items[9]
-		,az: items[10]
-		,gx: items[11]
-		,gy: items[12]
-		,gz: items[13]
-		,lat: items[14]
-		,lon: items[15]
+		,hum: items[1]
+		,pres: items[2]
+    ,temp: items[3]
+		,lat: items[4]
+		,lon: items[5]
+		,alt: items[6]
+		,vel: items[7]
+		,ssid: items[8]
 	}
 }
 
 var port = new serialport('/dev/cu.usbserial-A50285BI', {
 //var port = new serialport('COM20', {
-	 baudrate: 9600
+	 baudRate: 9600
 	,parser: serialport.parsers.readline('\n')
 });
 
@@ -81,10 +74,13 @@ io.sockets.on('connection', function(socket){
 			};
 
       var sen = {
-        temp: gprmcObj.temp1,
+        temp: gprmcObj.temp,
         hume: gprmcObj.hum,
         press: gprmcObj.pres,
-        temp2: gprmcObj.temp2,
+        ssid: gprmcObj.ssid,
+        alt:  gprmcObj.alt,
+        vel:  gprmcObj.vel,
+        ssid: gprmcObj.ssid
 			};
 
       /* Hyposometric formula:                      */
@@ -97,9 +93,9 @@ io.sockets.on('connection', function(socket){
       /*        P0  = sea-level pressure (in hPa)   */
       /*        P   = atmospheric pressure (in hPa) */
       /*        T   = temperature (in °C)           */
-      
-      var seaLevel=1013.25;
-      console.log(((math.pow((seaLevel/sen.press),0.190223)-1.0)*(parseFloat(sen.temp2)+273.15))/0.0065);
+
+    //  var seaLevel=1013.25;
+    //  console.log(((math.pow((seaLevel/sen.press),0.190223)-1.0)*(parseFloat(sen.temp2)+273.15))/0.0065);
 
     console.log(gprmcObj);
 		socket.emit('coords:gps', {
