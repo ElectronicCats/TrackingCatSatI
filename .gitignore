@@ -30,3 +30,5 @@ node_modules
 *.DS_Store
 
 TrackingCatSatI/info\.txt
+
+tracking_cat\.code-workspace

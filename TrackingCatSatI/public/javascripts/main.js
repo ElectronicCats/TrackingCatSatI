@@ -38,8 +38,6 @@ function onScript(){
 	var gageHum	= 0;
 	var gageSsid	=0;
 	var gagePress	= 0;
-	var gageAlt =0;
-	var gageVel=0;
 
 	socket.on('datos:sensors', function (data) {
 		console.log(data);
@@ -48,8 +46,6 @@ function onScript(){
 		gageHum	= sen.hume;
 		gagePress	= sen.press;
 		gageTemp	= sen.temp;
-		gageAlt	=	sen.alt;
-		gageVel	= sen.vel;
 		gageSsid	=	sen.ssid;
 
 
@@ -58,8 +54,6 @@ function onScript(){
 
 		Presion.refresh(gagePress);
 		Ssid.refresh(gageSsid);
-		Altura.refresh(gageAlt);
-		Velocidad.refresh(gageVel);
 
 
 	});
@@ -121,21 +115,6 @@ function onScript(){
 		title: "SSID"
 	});
 
-	var Altura = new JustGage({
-		id: "gauge4",
-		value: gageAlt,
-		min: 0,
-		max: 22000,
-		title: "Altura"
-	});
-
-	var Velocidad = new JustGage({
-		id: "gauge5",
-		value: gageVel,
-		min: 0,
-		max: 50,
-		title: "Velocidad"
-	});
 
 
 }
