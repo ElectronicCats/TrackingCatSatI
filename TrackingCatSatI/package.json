@@ -9,7 +9,7 @@
     "express": "3.3.4",
     "pug": "*",
     "mathjs": "^3.6.0",
-    "serialport": "*",
+    "serialport": "4.0.7",
     "socket.io": "*",
     "stylus": "*",
     "jade": "*"
