@@ -1,0 +1,31 @@
+extends layout
+
+block content
+	div.container
+
+		div.container-narrow
+			div.masthead
+			ul.nav.nav-pills.pull-right
+				li.active
+					a(href="#") Inicio
+				li
+					a(href="#") Pantalla Completa
+				li
+					a(href="#") Configuración
+
+			h2.muted #{title}.
+		hr
+
+		div.container-fluid
+			div.row-fluid
+				div.span9
+					div.img-polaroid(id="mimapa")
+				div.span3
+
+					div.well.sidebar-nav
+						ul.nav.nav-list
+							li.nav-header(id="gauge")
+							li.active(id="gauge1")
+							li(id="gauge2")
+							li(id="gauge3")
+							li(id="gauge4")
