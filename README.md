@@ -1,14 +1,40 @@
 # Tracking CatSat I
 
-Este es un sistema para el seguimiento en estación terrena del CatSat I en tiempo real por medio de GPS y una red de radio frecuencia.
+Este es un sistema basado en nodejs utilizado para el seguimiento en estación terrena del CatSat I en tiempo real por medio de GPS y comunicación LoRa.
 
-##Ejemplos
+## Instalacion normal
 
-- ClientAPI: Ejemplo basico de parseo
-- geotest: Ejemplo de OpenStreetMap
-- node-mea: Ejemplo basico de lectura datos en bruto del GPS por puerto Serial
-- Serial Node: Ejemplo basico de lectura del puerto Serial
-- TrackingCat:  Ejemplo completo de Tracking CatSat I
+- Instalar Node.js 8+
+- Clonar`https://github.com/ElectronicCats/TrackingCatSatI` a TrackingCatSatI folder 
+- ir a TrackingCatSatI, abrir terminal y correr
+
+`npm install`
+
+## Instalaciones especiales Windows
+
+- Instalar Node.js 8+
+- Clonar`https://github.com/ElectronicCats/TrackingCatSatI` a TrackingCatSatI folder 
+- ir a TrackingCatSatI y correr
+
+`npm install --global --production windows-build-tools`
+
+`npm install --msvs_version=2015`
+
+## Ejecutar programa
+
+- Editar el archivo app.js con el puerto serial correspondiente a donde esta conectada la estacion terrena
+
+En la linea 43 [https://github.com/ElectronicCats/TrackingCatSatI/blob/master/app.js#L43](https://github.com/ElectronicCats/TrackingCatSatI/blob/master/app.js#L43)
+
+Guardar el archivo y ejecutar desde terminal
+
+- ir a TrackingCatSatI y correr
+
+`node app.js `
+
+- Abrir tu navegador favorito e ir a:
+
+`localhost:3000`
 
 ## Tecnologias del proyecto.
 
