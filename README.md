@@ -4,7 +4,7 @@ Este es un sistema basado en nodejs utilizado para el seguimiento en estación t
 
 ## Instalacion normal
 
-- Instalar Node.js 8+
+- Instalar Node.js 8.12.0
 - Clonar`https://github.com/ElectronicCats/TrackingCatSatI` a TrackingCatSatI folder 
 - ir a TrackingCatSatI, abrir terminal y correr
 
@@ -12,7 +12,7 @@ Este es un sistema basado en nodejs utilizado para el seguimiento en estación t
 
 ## Instalaciones especiales Windows
 
-- Instalar Node.js 8+
+- Instalar Node.js 8.12.0
 - Clonar`https://github.com/ElectronicCats/TrackingCatSatI` a TrackingCatSatI folder 
 - ir a TrackingCatSatI y correr
 
