@@ -2,19 +2,20 @@
 
 Este es un sistema basado en nodejs utilizado para el seguimiento en estación terrena del CatSat I en tiempo real por medio de GPS y comunicación LoRa.
 
-## Instalacion normal
+## Instalacion normal (MacOS y Linux)
 
 - Instalar Node.js 8.12.0
 - Clonar`https://github.com/ElectronicCats/TrackingCatSatI` a TrackingCatSatI folder 
-- ir a TrackingCatSatI, abrir terminal y correr
+- ir a TrackingCatSatI, abrir terminal y ejecutar
 
 `npm install`
 
 ## Instalaciones especiales Windows
 
 - Instalar Node.js 8.12.0
-- Clonar`https://github.com/ElectronicCats/TrackingCatSatI` a TrackingCatSatI folder 
-- ir a TrackingCatSatI y correr
+- Clonar`https://github.com/ElectronicCats/TrackingCatSatI` 
+- Abrir terminal de Windows e ir a la carpeta TrackingCatSatI 
+- Ejecutar los siguientes comandos
 
 `npm install --global --production windows-build-tools`
 
@@ -27,8 +28,6 @@ Este es un sistema basado en nodejs utilizado para el seguimiento en estación t
 En la linea 43 [https://github.com/ElectronicCats/TrackingCatSatI/blob/master/app.js#L43](https://github.com/ElectronicCats/TrackingCatSatI/blob/master/app.js#L43)
 
 Guardar el archivo y ejecutar desde terminal
-
-- ir a TrackingCatSatI y correr
 
 `node app.js `
 
