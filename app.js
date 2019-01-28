@@ -36,11 +36,14 @@ var items = recvString.split(',');
 		,gy: items[12]
 		,gz: items[13]
 		,lat: items[14]
-		,lon: items[15]
+    ,lon: items[15]
+    ,alt: items[16]
+    ,vel: items[17]
+    ,rssi: items[18]
 	}
 }
 
-var port = new serialport('/dev/cu.usbserial-A50285BI', {
+var port = new serialport('/dev/cu.usbmodem14101', {
 //var port = new serialport('COM20', {
 	 baudrate: 9600
 	,parser: serialport.parsers.readline('\n')
@@ -88,6 +91,9 @@ io.sockets.on('connection', function(socket){
         hume: gprmcObj.hum,
         press: gprmcObj.pres,
         temp2: gprmcObj.temp2,
+        rssi: gprmcObj.rssi,
+        alt: gprmcObj.alt,
+        vel: gprmcObj.vel
 			};
 
       /* Hyposometric formula:                      */

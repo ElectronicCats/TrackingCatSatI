@@ -36,27 +36,29 @@ function onScript(){
 
 var gageTemp	=0;
 var gageHum	= 0;
-var gageTemp2	=0;
+var gageRssi	=0;
 var gagePress	= 0;
+var gageAlt	=0;
 
-	socket.on('datos:sensors', function (data) {
-		console.log(data);
-		var sen = data.sensores;
-		gageTemp2	= sen.temp2;
+socket.on('datos:sensors', function (data) {
+	console.log(data);
+	var sen = data.sensores;
 
-		gageHum	= sen.hume;
+	gageHum	= sen.hume;
 
-		gageTemp	= sen.temp;
+	gageTemp	= sen.temp2;
 
-		gagePress	= sen.press;
+	gagePress	= sen.press;
 
-		Temperatura.refresh(gageTemp);
-		Humedad.refresh(gageHum);
+	gageRssi	= sen.rssi;
+	
+	gageAlt	= sen.alt;
 
-		Presion.refresh(gagePress);
-		Temperatura2.refresh(gageTemp2);
-
-
+	Temperatura.refresh(gageTemp);
+	Humedad.refresh(gageHum);
+	Presion.refresh(gagePress);
+	RSSI.refresh(gageRssi);
+	Alt.refresh(gageAlt);
 	});
 
 	function onlocation(position){
@@ -81,7 +83,7 @@ var gagePress	= 0;
 		gps.bindPopup( "CatSat").openPopup();
 		var polyline = L.polyline(posizioni, {color: 'red'}).addTo(mymap);
 		mymap.fitBounds(polyline.getBounds());
-
+		console.log(pos);
 	});
 
 	var Temperatura = new JustGage({
@@ -93,30 +95,36 @@ var gagePress	= 0;
 	});
 
 	var Humedad = new JustGage({
-    id: "gauge1",
-    value: gageHum,
-    min: 0,
-    max: 100,
-    title: "Humedad"
-  });
-
-	var Presion = new JustGage({
-    id: "gauge2",
-    value: gagePress,
-    min: 250,
-    max: 1100,
-    title: "Presion"
-  });
-
-	var Temperatura2 = new JustGage({
-		id: "gauge3",
-		value: gageTemp2,
-		min: -60,
-		max: 90,
-		title: "Temperatura 2"
+		id: "gauge1",
+		value: gageHum,
+		min: 0,
+		max: 100,
+		title: "Humedad"
 	});
 
+	var Presion = new JustGage({
+		id: "gauge2",
+		value: gagePress,
+		min: 250,
+		max: 1100,
+		title: "Presion"
+	});
 
+	var RSSI = new JustGage({
+		id: "gauge3",
+		value: gageRssi,
+		min: -120,
+		max: -20,
+		title: "RSSI"
+	});
+
+	var Alt = new JustGage({
+		id: "gauge4",
+		value: gageAlt,
+		min: 0,
+		max: 25000,
+		title: "Altura"
+	});
 }
 
 $(document).on('ready',onScript);
