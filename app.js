@@ -8,11 +8,11 @@ var express = require('express')
   , user = require('./routes/user')
   , http = require('http')
   , path = require('path');
+
 const fs = require('fs');
 
-var math = require('mathjs');
-
 var app = express();
+
 var server = http.createServer(app);
 var io = require('socket.io').listen(server);
 var serialport = require('serialport') //Serial tools
@@ -43,11 +43,16 @@ var items = recvString.split(',');
 	}
 }
 
-var port = new serialport('/dev/cu.usbmodem14101', {
+// Gracias a //kike nuevo version nodejs 10.xxx y serialport 7.xxx
+const Readline = require('@serialport/parser-readline')
+
+var port = new serialport('/dev/cu.usbmodem1421', {
 //var port = new serialport('COM20', {
-	 baudrate: 9600
-	,parser: serialport.parsers.readline('\n')
+   baudRate: 9600
+   //	,parser: serialport.parsers.readline('\n')
 });
+
+const parser = port.pipe(new Readline({ delimiter: '\n' }))
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -76,9 +81,7 @@ io.sockets.on('connection', function(socket){
 		socket.broadcast.emit('coords:user', data);
 	});
 
-	//socket.emit('news', { hello: 'world' });
-
-	port.on('data', function(line){
+	parser.on('data', function(line){
       var today = new Date();
       var gprmcObj = stringParse(line);
 			var pos = {
