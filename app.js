@@ -1,7 +1,15 @@
 
 /**
- * Module dependencies.
- */
+ *  Example of Panel Ground Station
+ *  Node JS
+ *  Autors:
+ *  Iddar Olivares
+ *  Andres Sabas
+ *  Eduardo Contreras
+ **/
+
+//Module dependencies.
+
 
 var express = require('express')
   , routes = require('./routes')
@@ -24,10 +32,10 @@ var items = recvString.split(',');
 		 id:  items[0]
 		,temp1: items[1]
 		,hum: items[2]
-    ,pres: items[3]
-		,temp2: items[4]
+    ,pres: items[5]
+		,temp2: items[3]
 		,mx: items[5]
-		,my: items[6]
+		,my: items[3]
 		,mz: items[7]
 		,ax: items[8]
 		,ay: items[9]
@@ -35,21 +43,20 @@ var items = recvString.split(',');
 		,gx: items[11]
 		,gy: items[12]
 		,gz: items[13]
-		,lat: items[14]
-    ,lon: items[15]
-    ,alt: items[16]
-    ,vel: items[17]
-    ,rssi: items[18]
+		,lat: items[16]
+    ,lon: items[17]
+    ,alt: items[18]
+    ,vel: items[19]
+    ,rssi: items[20]
 	}
 }
 
 // Gracias a //kike nuevo version nodejs 10.xxx y serialport 7.xxx
 const Readline = require('@serialport/parser-readline')
 
-var port = new serialport('/dev/cu.usbmodem1421', {
+var port = new serialport('/dev/cu.usbserial-A9M9DV3R', {
 //var port = new serialport('COM20', {
    baudRate: 9600
-   //	,parser: serialport.parsers.readline('\n')
 });
 
 const parser = port.pipe(new Readline({ delimiter: '\n' }))
