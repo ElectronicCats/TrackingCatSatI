@@ -6,13 +6,13 @@
     "start": "nodemon app.js"
   },
   "dependencies": {
-    "express": "3.3.4",
-    "pug": "*",
+    "express": "^3.21.2",
+    "jade": "*",
     "mathjs": "^3.6.0",
-    "serialport": "4.0.7",
+    "pug": "*",
+    "serialport": "*",
     "socket.io": "*",
-    "stylus": "*",
-    "jade": "*"
+    "stylus": "*"
   },
   "devDependencies": {
     "nodemon": "*"
