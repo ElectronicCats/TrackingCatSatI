@@ -51,7 +51,7 @@ var items = recvString.split(',');
 	}
 }
 
-// Gracias a //kike nuevo version nodejs 10.xxx y serialport 7.xxx
+// Gracias a //kike nuevo version nodejs 11.xxx y serialport 7.xxx
 const Readline = require('@serialport/parser-readline')
 
 var port = new serialport('/dev/cu.usbserial-A9M9DV3R', {
