@@ -3,7 +3,7 @@ import React from "react";
 /**
  * Components
  */
-import GridContainer from "./containers/GridContainer";
+import Home from "./containers/Home";
 
-const MainComponent = () => <GridContainer />;
+const MainComponent = () => <Home />;
 export default MainComponent;
