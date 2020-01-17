@@ -6,12 +6,14 @@ import { connect } from "react-redux";
 import * as home_actions from "../../actions/catwan-actions";
 
 import Header from "../Header"
+import Countent from "../Countent"
 
 class Home extends Component {
   render() {
     return (
       <Fragment>
         <Header/>
+        <Countent/>
       </Fragment>
     );
   }
