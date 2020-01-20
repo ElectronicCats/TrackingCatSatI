@@ -40,8 +40,8 @@ app.on("ready", async () => {
   }
 
   mainWindow = new BrowserWindow({
-    width: 1000,
-    height: 800,
+    width: 1200,
+    height: 700,
     minWidth: 640,
     minHeight: 480,
     icon: path.join(__dirname, "../renderer/logoXL.png"),
