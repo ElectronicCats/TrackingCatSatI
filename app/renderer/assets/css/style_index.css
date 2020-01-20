@@ -815,3 +815,71 @@ Sidebar
   background-color: #0e021d;
 
 }
+
+#mapid {
+  width: 100%;
+  height: 580px;
+  position: relative;
+}
+#element_map-2 {
+  transform: translate3d(0px, 0px, 0px);
+}
+#element_map-3 {
+  z-index: 1;
+  opacity: 1;
+}
+#element_map-4 {
+  z-index: 18;
+  transform: translate3d(0px, 0px, 0px) scale(1);
+}
+#element_map-5 {
+  width: 256px;
+  height: 256px;
+  transform: translate3d(56px, -91px, 0px);
+  opacity: 1;
+}
+#element_map-6 {
+  width: 256px;
+  height: 256px;
+  transform: translate3d(312px, -91px, 0px);
+  opacity: 1;
+}
+#element_map-7 {
+  width: 256px;
+  height: 256px;
+  transform: translate3d(56px, 165px, 0px);
+  opacity: 1;
+}
+#element_map-8 {
+  width: 256px;
+  height: 256px;
+  transform: translate3d(312px, 165px, 0px);
+  opacity: 1;
+}
+#element_map-9 {
+  width: 256px;
+  height: 256px;
+  transform: translate3d(-200px, -91px, 0px);
+  opacity: 1;
+}
+#element_map-10 {
+  width: 256px;
+  height: 256px;
+  transform: translate3d(568px, -91px, 0px);
+  opacity: 1;
+}
+#element_map-11 {
+  width: 256px;
+  height: 256px;
+  transform: translate3d(-200px, 165px, 0px);
+  opacity: 1;
+}
+#element_map-12 {
+  width: 256px;
+  height: 256px;
+  transform: translate3d(568px, 165px, 0px);
+  opacity: 1;
+}
+#element_map-13 {
+  transform: translate3d(1.04805e6px, 697379px, 0px) scale(4096);
+}

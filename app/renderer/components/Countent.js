@@ -1,4 +1,6 @@
 import React, { Component, Fragment } from "react";
+
+import CountentWrapper from "./CountentWrapper"
 class Countent extends Component {
   render() {
     return (
@@ -111,6 +113,7 @@ class Countent extends Component {
             </a>
           </li>
         </nav>
+        <CountentWrapper />
       </main>
     );
   }
