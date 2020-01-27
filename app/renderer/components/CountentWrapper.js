@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from "react";
 
-
 class Countent extends Component {
   render() {
     return (
@@ -9,7 +8,6 @@ class Countent extends Component {
           <div
             id="mapid"
             className="leaflet-container leaflet-touch leaflet-retina leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom"
-            tabindex="0"
           >
             <div id="element_map-2" className="leaflet-pane leaflet-map-pane">
               <div className="leaflet-pane leaflet-tile-pane">
@@ -21,56 +19,48 @@ class Countent extends Component {
                     <img
                       alt=""
                       role="presentation"
-                      src={"./Quick Start - Leaflet_files/2723.png"}
                       className="leaflet-tile leaflet-tile-loaded"
                       id="element_map-5"
                     />
                     <img
                       alt=""
                       role="presentation"
-                      src={"./Quick Start - Leaflet_files/2723(1).png"}
                       className="leaflet-tile leaflet-tile-loaded"
                       id="element_map-6"
                     />
                     <img
                       alt=""
                       role="presentation"
-                      src={"./Quick Start - Leaflet_files/2724.png"}
                       className="leaflet-tile leaflet-tile-loaded"
                       id="element_map-7"
                     />
                     <img
                       alt=""
                       role="presentation"
-                      src={"./Quick Start - Leaflet_files/2724(1).png"}
                       className="leaflet-tile leaflet-tile-loaded"
                       id="element_map-8"
                     />
                     <img
                       alt=""
                       role="presentation"
-                      src={"./Quick Start - Leaflet_files/2723(2).png"}
                       className="leaflet-tile leaflet-tile-loaded"
                       id="element_map-9"
                     />
                     <img
                       alt=""
                       role="presentation"
-                      src={"./Quick Start - Leaflet_files/2723(3).png"}
                       className="leaflet-tile leaflet-tile-loaded"
                       id="element_map-10"
                     />
                     <img
                       alt=""
                       role="presentation"
-                      src={"./Quick Start - Leaflet_files/2724(2).png"}
                       className="leaflet-tile leaflet-tile-loaded"
                       id="element_map-11"
                     />
                     <img
                       alt=""
                       role="presentation"
-                      src={"./Quick Start - Leaflet_files/2724(3).png"}
                       className="leaflet-tile leaflet-tile-loaded"
                       id="element_map-12"
                     />
