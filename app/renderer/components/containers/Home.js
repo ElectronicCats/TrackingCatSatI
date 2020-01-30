@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from "react";
-import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
 
 //REDUX
 import { connect } from "react-redux";
@@ -8,8 +7,10 @@ import * as home_actions from "../../actions/catwan-actions";
 import Header from "../Header"
 import Countent from "../Countent"
 
+
 class Home extends Component {
   render() {
+    console.log(this.props);
     return (
       <Fragment>
         <Header/>

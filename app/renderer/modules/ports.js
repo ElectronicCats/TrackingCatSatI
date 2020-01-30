@@ -29,6 +29,7 @@ export const getters = {
   __SET_PORT() {
     var connection = this.connection;
     var port = this.port;
+    console.log(port);
 
     function* closePort() {
       var sp = new SerialPort(port, { baudRate: 9600, autoOpen: true });
@@ -54,8 +55,7 @@ export const actions = {
     store.dispatch(getDataPort("..."));
     const state = { port, __url, __urlPort, connection };
     const sp = getters.__SET_PORT.call(state);
-
-    
+    console.table(state);
     sp.on("close", function(err) {
       console.error("close port!", err);
     });
@@ -66,53 +66,8 @@ export const actions = {
 
     parser.on("data", function(data) {
       console.log("Send data port!");
+      console.log(data);
       store.dispatch(getDataPort(data));
-      if (__url != undefined && __urlPort != undefined) {
-        axios
-          .post(`${__url}:${__urlPort}`, [
-            {
-              type: "uplink",
-              payload: {
-                adr: false,
-                applicationID: "1",
-                applicationName: "Relay",
-                data: "AXQs7AKABAMDgAQDA4MAAdyQBGcA3A==",
-                devEUI: "0000000000000000",
-                deviceName: "Relay1",
-                fCnt: 1,
-                fPort: 1,
-                object: {
-                  d1: data, //.charAt(0),
-                  d2: data, //.charAt(1),
-                  d3: data //.charAt(2)
-                },
-                rxInfo: [
-                  {
-                    gatewayID: "USBStick",
-                    loRaSNR: 2,
-                    location: {
-                      altitude: 0,
-                      latitude: 0,
-                      longitude: 0
-                    },
-                    name: "USBStick",
-                    rssi: -108
-                  }
-                ],
-                txInfo: {
-                  dr: 3,
-                  frequency: 90200000
-                }
-              }
-            }
-          ])
-          .then(function(response) {
-            console.log(response);
-          })
-          .catch(function(error) {
-            console.log(error);
-          });
-      }
     });
   }
 };

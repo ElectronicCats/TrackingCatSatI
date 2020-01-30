@@ -756,8 +756,23 @@ Sidebar
   color: #f2f2f2;
   width: 100%;
   height: 60px;
-  border-radius: 10px;
-  background-color: #585c64;
+  background-color: #0d1931;
+}
+.container__input--button{
+  background-color: #3e454c;
+  width: 100%;
+  height: 35px;
+  font-size: 19px;
+  border: none;
+  color: #fff;
+}
+.input-group--select{
+  background-color: #3e454c;
+  width: 100%;
+  height: 35px;
+  font-size: 19px;
+  border: none;
+  color: #fff;
 }
 
 .p-title-grph{

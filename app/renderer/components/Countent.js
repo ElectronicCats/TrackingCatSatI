@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from "react";
 
+import SerialPortConnection from "./containers/SerialPortConnection";
+
 import CountentWrapper from "./CountentWrapper"
 class Countent extends Component {
   render() {
@@ -89,7 +91,7 @@ class Countent extends Component {
           <ul>
             <li className="cd-label">Secondario</li>
             <li className="has-children bookmarks">
-              <a href="#0">Bitácora</a>
+             <SerialPortConnection />
             </li>
             <li className="has-children images">
               <a href="#0">Galeria</a>

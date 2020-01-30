@@ -15,13 +15,6 @@ const initialState = {
     listports: []
   },
   activePort: "",
-  timelinedata: [],
-  commands: [],
-  timeline_count: 0, // A counter of how many data items we've received.
-  command_sent_count: 0,
-  command_to_send: false,
-  epoch: 0,
-  mockOBC: false
 };
 
 /* Reducer

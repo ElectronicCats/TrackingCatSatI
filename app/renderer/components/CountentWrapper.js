@@ -126,7 +126,7 @@ class Countent extends Component {
           <p className="p-title-grph">Humedad</p>
         </div>
         <div id="chartHum" />
-
+        
         <div className="title-card-column">
           <p className="p-title-grph">Temperatura</p>
         </div>
