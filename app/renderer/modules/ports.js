@@ -3,7 +3,6 @@ import { setSerialPorts, getDataPort } from "../actions/catwan-actions";
 import store from "../store";
 import SerialPort from "serialport";
 import Readline from "@serialport/parser-readline";
-import axios from "axios";
 
 var parser = new Readline();
 

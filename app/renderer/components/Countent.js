@@ -9,6 +9,7 @@ class Countent extends Component {
       <main className="cd-main-content">
         <nav className="cd-side-nav">
           <Section
+            setCategory={true}
             nameCategory="Main"
             id=""
             //icon={} future icon
@@ -26,22 +27,13 @@ class Countent extends Component {
               }
             ]}
           />
-              <Section
+          <Section
+            setCategory={false}
             nameCategory="Info"
             id=""
             //icon={} future icon
             name="Info"
             subSections={[
-              {
-                name: "Latitude",
-                tagColor: "rgba(77,45,255)",
-                value: "43243"
-              },
-              {
-                name: "Longitude",
-                tagColor: "rgba(24,223,235)",
-                value: "432432"
-              },
               {
                 name: "Latitude",
                 tagColor: "rgba(77,45,255)",
