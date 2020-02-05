@@ -3,7 +3,9 @@
 Primary style
 
 -------------------------------- */
-*, *::after, *::before {
+*,
+*::after,
+*::before {
   box-sizing: border-box;
 }
 
@@ -46,11 +48,11 @@ Main Page Content
 
 -------------------------------- */
 
-#log-uci{
+#log-uci {
   width: 20px;
   height: auto;
 }
-#log-elec{
+#log-elec {
   width: 35px;
   height: auto;
 }
@@ -65,7 +67,7 @@ Main Page Content
 .cd-main-content::before {
   /* never visible - used to check MQ in jQuery */
   display: none;
-  content: 'mobile';
+  content: "mobile";
 }
 @media only screen and (min-width: 768px) {
   .cd-main-content .content-wrapper {
@@ -78,7 +80,7 @@ Main Page Content
     font-weight: 300;
   }
   .cd-main-content::before {
-    content: 'tablet';
+    content: "tablet";
   }
 }
 @media only screen and (min-width: 1170px) {
@@ -86,7 +88,7 @@ Main Page Content
     margin-left: 200px;
   }
   .cd-main-content::before {
-    content: 'desktop';
+    content: "desktop";
   }
 }
 
@@ -146,7 +148,9 @@ Header
   white-space: nowrap;
   color: transparent;
 }
-.cd-nav-trigger span, .cd-nav-trigger span::before, .cd-nav-trigger span::after {
+.cd-nav-trigger span,
+.cd-nav-trigger span::before,
+.cd-nav-trigger span::after {
   /* hamburger icon in CSS */
   position: absolute;
   display: inline-block;
@@ -164,9 +168,10 @@ Header
   -moz-transition: background 0.2s;
   transition: background 0.2s;
 }
-.cd-nav-trigger span::before, .cd-nav-trigger span::after {
+.cd-nav-trigger span::before,
+.cd-nav-trigger span::after {
   /* other 2 lines */
-  content: '';
+  content: "";
   right: 0;
   /* Force Hardware Acceleration in WebKit */
   -webkit-transform: translateZ(0);
@@ -197,7 +202,8 @@ Header
   /* hide line in the center */
   background: rgba(255, 255, 255, 0);
 }
-.cd-nav-trigger.nav-is-visible span::before, .cd-nav-trigger.nav-is-visible span::after {
+.cd-nav-trigger.nav-is-visible span::before,
+.cd-nav-trigger.nav-is-visible span::after {
   /* keep visible other 2 lines */
   background: white;
 }
@@ -230,7 +236,7 @@ Header
 }
 .cd-search::before {
   /* lens icon */
-  content: '';
+  content: "";
   position: absolute;
   left: 8px;
   top: 50%;
@@ -249,7 +255,7 @@ Header
   width: 100%;
   height: 36px;
   border: none;
-  border-radius: .25em;
+  border-radius: 0.25em;
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -261,7 +267,6 @@ Header
 }
 @media only screen and (min-width: 768px) {
   .cd-search {
-    float: left;
     display: inline-block;
     width: 250px;
     height: 100%;
@@ -275,7 +280,8 @@ Header
     background-position: 0 -16px;
     left: 1em;
   }
-  .cd-search form, .cd-search input {
+  .cd-search form,
+  .cd-search input {
     height: 100%;
     width: 100%;
   }
@@ -359,7 +365,7 @@ Top Navigation
     margin-right: 0;
   }
   .cd-top-nav > li a {
-    padding: 1em .6em !important;
+    padding: 1em 0.6em !important;
   }
   .cd-top-nav img {
     display: block;
@@ -411,7 +417,8 @@ Sidebar
 .cd-side-nav > ul:last-of-type {
   padding-bottom: 0;
 }
-.cd-side-nav .cd-label, .cd-side-nav a {
+.cd-side-nav .cd-label,
+.cd-side-nav a {
   display: block;
   padding: 1em 5%;
 }
@@ -420,7 +427,7 @@ Sidebar
   font-weight: bold;
   color: #646a6f;
   font-size: 1rem;
-  letter-spacing: .1em;
+  letter-spacing: 0.1em;
 }
 .cd-side-nav a {
   position: relative;
@@ -437,7 +444,7 @@ Sidebar
 .cd-side-nav > ul > li > a::before {
   /* icon before item name */
   position: absolute;
-  content: '';
+  content: "";
   left: 5%;
   top: 50%;
   bottom: auto;
@@ -481,7 +488,7 @@ Sidebar
   right: calc(5% + 16px + 0.4em);
   padding: 0.2em 0.4em;
   background-color: #ff7e66;
-  border-radius: .25em;
+  border-radius: 0.25em;
   color: #ffffff;
   font-weight: bold;
   font-size: 1.2rem;
@@ -492,9 +499,10 @@ Sidebar
   margin: 0 5%;
   padding: 1em 0;
   background-color: #1784c7;
-  border-radius: .25em;
+  border-radius: 0.25em;
   border: none;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
   text-align: center;
   color: #ffffff;
   font-weight: bold;
@@ -615,8 +623,8 @@ Sidebar
     color: #ffffff;
     height: auto;
     width: auto;
-    border-radius: .25em;
-    padding: .2em .4em;
+    border-radius: 0.25em;
+    padding: 0.2em 0.4em;
     top: 50%;
     bottom: auto;
     -webkit-transform: translateY(-50%);
@@ -639,7 +647,7 @@ Sidebar
 .has-children > a::after {
   /* arrow icon */
   position: absolute;
-  content: '';
+  content: "";
   height: 16px;
   width: 16px;
   right: 5%;
@@ -666,6 +674,7 @@ Sidebar
   .has-children {
     position: relative;
   }
+
   .has-children ul {
     position: absolute;
     top: 0;
@@ -730,7 +739,8 @@ Sidebar
     left: 0;
     box-shadow: none;
   }
-  .no-touch .cd-side-nav .has-children:hover > ul, .cd-side-nav .has-children.hover > ul {
+  .no-touch .cd-side-nav .has-children:hover > ul,
+  .cd-side-nav .has-children.hover > ul {
     /* show subnavigation on hover */
     display: block;
     opacity: 1;
@@ -738,101 +748,111 @@ Sidebar
   }
 }
 
-
 /* STYLE FOR I */
 
-.container-mapa{
+.container-mapa {
   width: 100%;
   height: 580px;
   background-color: transparent;
-  margin-bottom: 25px; 
+  margin-bottom: 25px;
 }
 
-#mapid{
+#mapid {
   z-index: 1;
 }
-.title-card-column{
+.title-card-column {
   font-family: "Open Sans", sans-serif;
   color: #f2f2f2;
   width: 100%;
   height: 60px;
   background-color: #0d1931;
 }
-.container__input--button{
+.container__input--button {
   background-color: #3e454c;
   width: 100%;
-  height: 35px;
+  height: 55px;
   font-size: 19px;
   border: none;
+  display: inline-block;
   color: #fff;
 }
-.input-group--select{
+.input-group {
+  display: flex;
+  font-size: 4em;
+}
+.input-group--select {
   background-color: #3e454c;
   width: 100%;
-  height: 35px;
+  height: 55px;
   font-size: 19px;
   border: none;
   color: #fff;
 }
 
-.p-title-grph{
-    text-align: center;
-    padding: 10px;
-    font-size: 22pt;
+.p-title-grph {
+  text-align: center;
+  padding: 10px;
+  font-size: 22pt;
 }
 
-.colorRSSI-G{
+.colorRSSI-G {
   background-color: #4caf50;
 }
-.colorRSSI-M{
+.colorRSSI-M {
   background-color: #ded11c;
 }
-.colorRSSI-B{
+.colorRSSI-B {
   background-color: #d22222;
-  color: #fff; 
+  color: #fff;
 }
 
-#altura{
+#altura {
   background-color: #f0720b;
-
-}#alturaAtm{
+}
+#alturaAtm {
   background-color: #af22d2;
-
-}#velocidad{
+}
+#velocidad {
   background-color: #1874ec;
-
-}#temperatura{
+}
+#temperatura {
   background-color: #2f7fe7;
-
-
-}#humedad{
+}
+#humedad {
   background-color: #25bfca;
-  
-
-}#presion{
+}
+#presion {
   background-color: #d28c22;
-
-
-}#tvoc{
+}
+#tvoc {
   background-color: #d8151573;
-
-
-}#co2{
+}
+#co2 {
   background-color: #6e22d2;
-
-}#giroscopio{
+}
+#giroscopio {
   background-color: #4b1b8a;
-
-}#acelerometro{
+}
+#acelerometro {
   background-color: #521941;
-
-}#magnetometro{
+}
+#magnetometro {
   background-color: #0e021d;
-
 }
 
 .leaflet-container {
   height: 400px;
   width: 100%;
-  z-index: -11;
+  z-index: 1;
+}
+
+@media only screen and (max-width: 768px) {
+  /*
+    TODO: Bug in z-index responsive map
+  */
+  .leaflet-container {
+    height: 400px;
+    width: 100%;
+    z-index: -1;
+  }
 }
