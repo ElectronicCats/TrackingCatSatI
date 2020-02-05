@@ -1,14 +1,16 @@
 import React, { Component, Fragment } from "react";
+import MapComponent from "./MapComponent";
 
 class Countent extends Component {
   render() {
     return (
       <div className="content-wrapper">
+        <MapComponent />
         <div className="title-card-column">
           <p className="p-title-grph">Humedad</p>
         </div>
         <div id="chartHum" />
-        
+
         <div className="title-card-column">
           <p className="p-title-grph">Temperatura</p>
         </div>
