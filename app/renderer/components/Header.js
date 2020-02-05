@@ -4,6 +4,8 @@ import React, { Component, Fragment } from "react";
   Sub-Components
 */
 
+import CountentWrapper from "./containers/SerialPortConnection";
+
 class Header extends Component {
   render() {
     return (
@@ -17,13 +19,13 @@ class Header extends Component {
             />
           </a>
           <a href="#0" className="cd-nav-trigger">
-            MENU
+            <CountentWrapper />
             <span />
           </a>
           <nav className="cd-nav">
             <ul className="cd-top-nav">
               <li className="has-children account">
-                <a href="#0" id="RSSI-data" />
+                <CountentWrapper />
               </li>
             </ul>
           </nav>
