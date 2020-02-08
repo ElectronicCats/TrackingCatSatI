@@ -13,7 +13,7 @@ class NewSection extends Component {
             <ul>
               {this.props.subSections.map(subsection => {
                 return (
-                  <li>
+                  <li key={subsection.key}>
                     <a href={subsection.link}>
                       {subsection.name}
                       <span
