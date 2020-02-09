@@ -8,4 +8,4 @@ RUN npm install
 
 EXPOSE 35829
 
-CMD ["node", "index.js"]
+RUN npm start
