@@ -1,7 +1,7 @@
 {
-  "name": "catwan-monitor",
-  "version": "1.0.8",
-  "description": "CatWAN Monitor permite conectar, monitorear y controlar por medio de un puerto serial los dispositivos de la CatWAN de Electronic Cats y enviar la información recibida a un servidor por medio de un HTTP POST.",
+  "name": "tracking-cat-sat",
+  "version": "1.0.1",
+  "description": "Universal Dashboard CatSat <3",
   "main": "init.js",
   "author": {
     "name": "Electronic Cats",
@@ -36,7 +36,7 @@
       "icon": "app/renderer/logoXL.png"
     }
   },
-  "repository": "https://github.com/ElectronicCats/CatWAN-Monitor",
+  "repository": "https://github.com/ElectronicCats/TrackingCatSatI",
   "license": "MIT",
   "dependencies": {
     "@babel/register": "^7.0.0",

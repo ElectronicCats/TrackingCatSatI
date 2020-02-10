@@ -65,8 +65,9 @@ export const actions = {
 
     parser.on("data", function(data) {
       console.log("Send data port!");
-      console.log(data);
-      store.dispatch(getDataPort(data));
+      console.log(data.split(","));
+      let parser = data.split(",");  //* Parser data ,
+      store.dispatch(getDataPort(parser));
     });
   }
 };

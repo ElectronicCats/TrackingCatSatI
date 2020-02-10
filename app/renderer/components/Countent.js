@@ -3,8 +3,13 @@ import React, { Component, Fragment } from "react";
 import CountentWrapper from "./CountentWrapper";
 
 import Section from "./Navbar/NewSection";
+
+import { connect } from "react-redux";
+import * as home_actions from "../actions/catwan-actions";
+
 class Countent extends Component {
   render() {
+    console.log(this.props.data[0])
     let key = 0;
     return (
       <main className="cd-main-content">
@@ -19,19 +24,19 @@ class Countent extends Component {
                 key: key++,
                 name: "Connected",
                 tagColor: "rgb(255, 197, 5)",
-                value: "True"
+                value: this.props.data[0] !== null ? "true" : "false"
               },
               {
                 key: key++,
                 name: "Device",
                 tagColor: "rgb(83, 197, 38)",
-                value: "CatSat-UAA"
+                value: this.props.data[0]
               },
               {
                 key: key++,
                 name: "RSSI",
                 tagColor: "rgb(83, 197, 38)",
-                value: "120.76"
+                value: this.props.data[18]
               }
             ]}
           />
@@ -45,13 +50,13 @@ class Countent extends Component {
                 key: key++,
                 name: "Temperature",
                 tagColor: "rgba(234,45,255)",
-                value: "35º"
+                value: this.props.data[1]
               },
               {
                 key: key++,
                 name: "Humidity",
                 tagColor: "rgba(24,222,255)",
-                value: "1200"
+                value: this.props.data[2]
               }
             ]}
           />
@@ -65,13 +70,13 @@ class Countent extends Component {
                 key: key++,
                 name: "pressure",
                 tagColor: "rgba(77,45,255)",
-                value: "1303"
+                value: this.props.data[3]
               },
               {
                 key: key++,
                 name: "temperature",
                 tagColor: "rgba(24,223,235)",
-                value: "35º"
+                value: this.props.data[4]
               }
             ]}
           />
@@ -85,19 +90,19 @@ class Countent extends Component {
                 key: key++,
                 name: "mx",
                 tagColor: "rgba(77,45,255)",
-                value: "1303"
+                value: this.props.data[5]
               },
               {
                 key: key++,
                 name: "my",
                 tagColor: "rgba(24,223,235)",
-                value: "35º"
+                value: this.props.data[6]
               },
               {
                 key: key++,
                 name: "mz",
                 tagColor: "rgba(24,223,235)",
-                value: "35º"
+                value: this.props.data[7]
               }
             ]}
           />
@@ -111,37 +116,37 @@ class Countent extends Component {
                 key: key++,
                 name: "ax",
                 tagColor: "rgba(77,45,255)",
-                value: "1303"
+                value: this.props.data[8]
               },
               {
                 key: key++,
                 name: "ay",
                 tagColor: "rgba(24,223,235)",
-                value: "35º"
+                value: this.props.data[9]
               },
               {
                 key: key++,
                 name: "az",
                 tagColor: "rgba(24,223,235)",
-                value: "35º"
+                value: this.props.data[10]
               },
               {
                 key: key++,
                 name: "gx",
                 tagColor: "rgba(24,223,235)",
-                value: "35º"
+                value: this.props.data[11]
               },
               {
                 key: key++,
                 name: "gy",
                 tagColor: "rgba(24,223,235)",
-                value: "35º"
+                value: this.props.data[12]
               },
               {
                 key: key++,
                 name: "gz",
                 tagColor: "rgba(24,223,235)",
-                value: "35º"
+                value: this.props.data[13]
               }
             ]}
           />
@@ -155,32 +160,41 @@ class Countent extends Component {
                 key: key++,
                 name: "Lat",
                 tagColor: "rgb(255, 197, 5)",
-                value: "True"
+                value: this.props.data[14]
               },
               {
                 key: key++,
                 name: "Long",
                 tagColor: "rgb(83, 197, 38)",
-                value: "CatSat-UAA"
+                value: this.props.data[15]
               },
               {
                 key: key++,
                 name: "Height",
                 tagColor: "rgb(255, 197, 5)",
-                value: "True"
+                value: this.props.data[16]
               },
               {
                 key: key++,
                 name: "Speed",
                 tagColor: "rgb(83, 197, 38)",
-                value: "CatSat-UAA"
+                value: this.props.data[17]
               }
             ]}
           />
         </nav>
-        <CountentWrapper />
+        <CountentWrapper/>
       </main>
     );
   }
 }
-export default Countent;
+
+const mapStateToProps = state => ({
+  data: state.data_port.data
+});
+
+/* Magic to hook up the state to the props */
+export default connect(
+  mapStateToProps,
+  home_actions
+)(Countent);

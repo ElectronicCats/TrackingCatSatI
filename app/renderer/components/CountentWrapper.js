@@ -1,8 +1,12 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import MapComponent from "./MapComponent";
 import SimpleLineChart from "./Charts/SimpleLineChart";
 
-import { data } from "./Charts/data"
+import { data } from "./Charts/data";
+
+import { connect } from "react-redux";
+import * as home_actions from "../actions/catwan-actions";
+
 class Countent extends Component {
   render() {
     return (
@@ -13,4 +17,13 @@ class Countent extends Component {
     );
   }
 }
-export default Countent;
+
+const mapStateToProps = state => ({
+  data: state.data_port.data,
+});
+
+/* Magic to hook up the state to the props */
+export default connect(
+  mapStateToProps,
+  home_actions
+)(Countent);

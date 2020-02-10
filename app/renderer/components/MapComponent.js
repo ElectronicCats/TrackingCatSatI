@@ -1,33 +1,33 @@
 import React, { Component } from "react";
 import { Map, Marker, Popup, TileLayer } from "react-leaflet";
-import { Icon } from "leaflet";
+
+import { connect } from "react-redux";
+import * as home_actions from "../actions/catwan-actions";
 
 class MapComponent extends Component {
-  constructor() {
-    super();
-    this.state = {
-      lat: 21.9008467,
-      lng: -102.31658777777777,
-      zoom: 18
-    };
-  }
-  
   render() {
-    const position = [this.state.lat, this.state.lng];
+    console.log(this.props);
     return (
-      <Map center={position} zoom={this.state.zoom}>
+      <Map
+        center={[this.props.position.lat, this.props.position.lng]}
+        zoom={this.props.position.zoom}
+      >
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.osm.org/{z}/{x}/{y}.png"
         />
-        <Marker position={position}>
-          <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
-          </Popup>
-        </Marker>
+        <Marker position={[this.props.position.lat, this.props.position.lng]} />
       </Map>
     );
   }
 }
 
-export default MapComponent;
+const mapStateToProps = state => ({
+  position: state.position
+});
+
+/* Magic to hook up the state to the props */
+export default connect(
+  mapStateToProps,
+  home_actions
+)(MapComponent);
