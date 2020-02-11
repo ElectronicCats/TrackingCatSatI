@@ -9,7 +9,6 @@ import * as home_actions from "../actions/catwan-actions";
 
 class Countent extends Component {
   render() {
-    console.log(`Que pedo, que pedo! ${this.props.data[0]}`)
     let key = 0;
     return (
       <main className="cd-main-content">
