@@ -9,12 +9,12 @@ import {
 
 const initialState = {
   data_port: {
-    data: []
-  },
-  position: {
-    lat: 21.9008467,
-    lng: -102.31658777777777,
-    zoom: 18
+    data: [],
+    position: {
+      lat: 21.9008467,
+      lng: -102.31658777777777,
+      zoom: 18
+    },
   },
   list_ports: {
     listports: []
