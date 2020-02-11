@@ -15,7 +15,7 @@ class SimpleLineChart extends PureComponent {
   render() {
     return (
       <Fragment>
-        <div className="title-card-column">
+        <div className="title-card-column" Style={`background-color: ${this.props.barColor} !important;`}>
           <p className="p-title-grph">{this.props.title}</p>
         </div>
         <ResponsiveContainer height="400px" width="100%" aspect={4.0}>
@@ -34,24 +34,30 @@ class SimpleLineChart extends PureComponent {
             <Tooltip />
             <Area
               type="monotone"
-              dataKey="uv"
+              dataKey={this.props.dataKeyA}
               stackId="1"
-              stroke="#2ec54d"
-              fill="#70d69f"
+              stroke={
+                this.props.strokeColorA ? this.props.strokeColorA : "#2ec54d"
+              }
+              fill={this.props.fillColorA ? this.props.fillColorA : "#70d69f"}
             />
             <Area
               type="monotone"
-              dataKey="pv"
+              dataKey={this.props.dataKeyB}
               stackId="1"
-              stroke="#7128fb"
-              fill="#8438f8"
+              stroke={
+                this.props.strokeColorB ? this.props.strokeColorB : "#7128fb"
+              }
+              fill={this.props.fillColorB ? this.props.fillColorB : "#8438f8"}
             />
             <Area
               type="monotone"
-              dataKey="amt"
+              dataKey={this.props.dataKeyC}
               stackId="1"
-              stroke="#f77525"
-              fill="#f9ca59"
+              stroke={
+                this.props.strokeColorC ? this.props.strokeColorC : "#f77525"
+              }
+              fill={this.props.fillColorC ? this.props.fillColorC : "#f9ca59"}
             />
           </AreaChart>
         </ResponsiveContainer>
