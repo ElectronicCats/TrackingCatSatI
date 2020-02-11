@@ -51,7 +51,6 @@ export const getters = {
 
 export const actions = {
   CONNECT_TO_SERIALPORT(port, __url, __urlPort, connection) {
-    store.dispatch(getDataPort("..."));
     const state = { port, __url, __urlPort, connection };
     const sp = getters.__SET_PORT.call(state);
     console.table(state);
@@ -72,5 +71,3 @@ export const actions = {
   }
 };
 
-//store.subscribe(connectToSerialPort);
-store.dispatch(getDataPort("..."));
