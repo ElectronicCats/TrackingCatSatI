@@ -50,6 +50,10 @@ export function getDataPort(data) {
       data_type: "SERIAL PORTS",
       id: hash({ timestamp: Date() }),
       data: data,
+      position: {
+        lat: data[14],
+        lng: data[15]
+      },
       epoch_received: get_epoch()
     }
   };
