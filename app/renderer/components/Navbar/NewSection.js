@@ -2,8 +2,6 @@ import React, { Component, Fragment } from "react";
 
 class NewSection extends Component {
   render() {
-   
-
     return (
       <Fragment>
         <ul>
