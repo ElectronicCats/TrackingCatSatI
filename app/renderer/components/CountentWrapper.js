@@ -19,36 +19,35 @@ class Countent extends Component {
           data={this.props.graphTemperature}
         />
         <SimpleLineChart
-          dataKeyA="temp"
-          dataKeyB="hum"
-          dataKeyC="press"
-          title="BMP"
+          dataKeyA="mx"
+          dataKeyB="my"
+          dataKeyC="mz"
+          title="Magnetometer"
           barColor="#3E38F2"
-          data={this.props.graphTemperature}
+          data={this.props.graphMagnetometer}
         />
         <SimpleLineChart
-          dataKeyA="temp"
-          dataKeyB="hum"
-          dataKeyC="press"
+          dataKeyA="ax"
+          dataKeyB="ay"
+          dataKeyC="az"
           title="Accelerometer"
           barColor="#5C73F2"
-          data={this.props.graphTemperature}
+          data={this.props.graphAccelerometer}
         />
         <SimpleLineChart
-          dataKeyA="temp"
-          dataKeyB="hum"
-          dataKeyC="press"
+          dataKeyA="gx"
+          dataKeyB="gy"
+          dataKeyC="gz"
           title="Gyroscope"
           barColor="#829FD9"
-          data={this.props.graphTemperature}
+          data={this.props.graphGyroscope}
         />
         <SimpleLineChart
-          dataKeyA="temp"
-          dataKeyB="hum"
-          dataKeyC="press"
+          dataKeyA="Height"
+          dataKeyB="Speed"
           title="GPS"
           barColor="#230A59"
-          data={this.props.graphTemperature}
+          data={this.props.graphGPS}
         />
       </div>
     );
@@ -57,24 +56,11 @@ class Countent extends Component {
 
 const mapStateToProps = state => ({
   data: state.data_port.data,
-  graphTemperature: [
-    ...[
-      {
-        name: "temp",
-        temp:
-          state.data_port.data[1] !== undefined ? state.data_port.data[1] : 0
-      },
-      {
-        name: "hum %",
-        hum: state.data_port.data[2] !== undefined ? state.data_port.data[2] : 0
-      },
-      {
-        name: "press",
-        press:
-          state.data_port.data[3] !== undefined ? state.data_port.data[3] : 0
-      }
-    ]
-  ]
+  graphTemperature: state.data_port.graphTemperature,
+  graphMagnetometer: state.data_port.graphMagnetometer,
+  graphAccelerometer: state.data_port.graphAccelerometer,
+  graphGyroscope: state.data_port.graphGyroscope,
+  graphGPS: state.data_port.graphGPS,
 });
 
 /* Magic to hook up the state to the props */
