@@ -1,0 +1,37 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
+    <!--link href="/assets/css/style.css" type="text/css" rel="stylesheet"-->
+	<link rel="stylesheet" href="./assets/css/style_index.css"> <!-- Resource style -->
+	<link href="./assets/css/style.css" type="text/css" rel="stylesheet">
+	<meta name="viewport" content="width=device-width,user-scalable=no">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+	integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+	crossorigin=""/>
+	<title>Tracking CatSat</title>
+</head>
+  <div id="app"></div>
+  <script src="./app.js" data-container="#app"></script>
+  <script>
+    if (process.env.BROWSER_SYNC_CLIENT_URL) {
+      const current = document.currentScript;
+      const script = document.createElement('script');
+      script.src = process.env.BROWSER_SYNC_CLIENT_URL;
+      script.async = true;
+      current.parentNode.insertBefore(script, current);
+    }
+  </script>
+  <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+	integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+	crossorigin=""></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>     
+<script src="./assets/js/jquery-2.1.4.js"></script>
+<script src="./assets/js/jquery.menu-aim.js"></script>
+<script src="./assets/js/main.js"></script> 
+</body>
+
+</html>

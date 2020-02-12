@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Open Sans", sans-serif;
+  background-color: #f2f2f2;
+}
+
+@media screen and (max-width: 960px) {
+  #wrapper {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  #wrapper {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #wrapper {
+    width: 100%;
+    margin: 0 auto;
+  }
+  #columna1 {
+    width: 100%;
+  }
+  #columna2 {
+    width: 100%;
+  }
+  #columna3 {
+    width: 100%;
+  }
+
+  header {
+    width: 100%;
+  }
+}
+
+/* Animaciones */
+
+@keyframes animation-color {
+  to {
+    background-color: #1784c7;
+  }
+  from {
+    background-color: rgb(24, 13, 91);
+  }
+}
