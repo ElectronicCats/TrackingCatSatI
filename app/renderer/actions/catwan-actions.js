@@ -7,6 +7,7 @@ import {
 } from "./action-types"; // snag the action type string
 import hash from "object-hash";
 import store from "../store";
+import { Fragment } from "react";
 
 /*  Actions
     - actions return an object with (minimally) a field called "type," which is a string describing the action to take
@@ -43,7 +44,86 @@ export function setSerialPorts(listports) {
   };
 }
 
+let graphTemperature = [];
+let graphMagnetometer = [];
+let graphAccelerometer = [];
+let graphGyroscope = [];
+let graphGPS = [];
+
 export function getDataPort(data) {
+  graphTemperature = [
+    ...graphTemperature,
+    {
+      name: "temp",
+      temp: data[1] !== undefined ? data[1] : 0
+    },
+    {
+      name: "hum %",
+      hum: data[2] !== undefined ? data[2] : 0
+    },
+    {
+      name: "press",
+      press: data[3] !== undefined ? data[3] : 0
+    }
+  ];
+
+  graphMagnetometer = [
+    ...graphMagnetometer,
+    {
+      name: "mx",
+      mx: data[5] !== undefined ? data[5] : 0
+    },
+    {
+      name: "my",
+      my: data[6] !== undefined ? data[6] : 0
+    },
+    {
+      name: "mz",
+      mz: data[7] !== undefined ? data[7] : 0
+    }
+  ];
+
+  graphAccelerometer = [
+    ...graphAccelerometer,
+    {
+      name: "ax",
+      ax: data[8] !== undefined ? data[8] : 0
+    },
+    {
+      name: "ay",
+      ay: data[9] !== undefined ? data[9] : 0
+    },
+    {
+      name: "az",
+      az: data[10] !== undefined ? data[10] : 0
+    }
+  ];
+  graphGyroscope = [
+    ...graphGyroscope,
+    {
+      name: "gx",
+      gx: data[11] !== undefined ? data[11] : 0
+    },
+    {
+      name: "gy",
+      gy: data[12] !== undefined ? data[12] : 0
+    },
+    {
+      name: "gz",
+      gz: data[13] !== undefined ? data[13] : 0
+    }
+  ];
+  graphGPS = [
+    ...graphGPS,
+    {
+      name: "Height",
+      Height: data[16] !== undefined ? data[16] : 0
+    },
+    {
+      name: "Speed",
+      Speed: data[17] !== undefined ? data[17] : 0
+    }
+  ];
   return {
     type: GET_DATA_PORTS,
     payload: {
@@ -54,6 +134,11 @@ export function getDataPort(data) {
         lat: data[14],
         lng: data[15]
       },
+      graphTemperature,
+      graphMagnetometer,
+      graphAccelerometer,
+      graphGyroscope,
+      graphGPS,
       epoch_received: get_epoch()
     }
   };
