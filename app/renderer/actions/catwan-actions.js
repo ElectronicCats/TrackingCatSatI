@@ -112,8 +112,8 @@ export function getDataPort(data) {
       id: hash({ timestamp: Date() }),
       data: data,
       position: {
-        lat: data[14],
-        lng: data[15]
+        lat: data[14] !== undefined ? data[14] : 0,
+        lng: data[15] !== undefined ? data[15] : 0
       },
       graphTemperature,
       graphMagnetometer,
