@@ -16,7 +16,7 @@ class SimpleLineChart extends PureComponent {
     return (
       <Fragment>
         <div className="title-card-column" Style={`background-color: ${this.props.barColor} !important;`}>
-          <p className="p-title-grph">{this.props.title}</p>
+          <p className="p-title-grph">{this.props.title} {/*<span onClick={} className="refresh--btn">clear</span>*/}</p>
         </div>
         <ResponsiveContainer height="400px" width="100%" aspect={4.0}>
           <AreaChart
