@@ -1,27 +1,34 @@
-# CatWAN Monitor
+# Tracking CatSat
 
-CatWAN Monitor permite conectar, monitorear y controlar por medio de un puerto serial los dispositivos de la CatWAN de Electronic Cats y enviar la información recibida a un servidor por medio de un HTTP POST.
-
+Tracking CatSat permite conectar, monitorear y controlar por medio de un puerto serial los dispositivos de Electronic Cats como el Cat Sat 1, Cat Sat Zero, entre otros de los productos de Electronic Cats y graficar los datos
 
 ## Quick start
-1. Descargar ejecutable dependiendo su sistema operativo en [releases](https://github.com/ElectronicCats/CatWAN-Monitor/releases)
+1. Descargar ejecutable dependiendo su sistema operativo en [releases](https://github.com/ElectronicCats/TrackingCatSatI/releases/tag/2.0.0)
 2. Ejecutar y seleccionar puerto serial
-3. Insertar link del servidor y puerto para enviar JSON con información.
+3. Preciona el botton de connect
 
 ## Advanced Install 
 
-1. git clone `https://github.com/ElectronicCats/CatWAN-Monitor.git`
-2. `cd CatWAN-Monitor`
+1. git clone `https://github.com/ElectronicCats/TrackingCatSatI.git`
+2. `cd TrackingCatSatI`
+3. `npm install`
 3. `npm start`
 
+## Serialdata order 
 
-## Tecnologias del proyecto.
+  * `ID,temp1,hum,press,temp2,mx,my,mz,ax,ay,az,gx,gy,gz,lat,long,alt,vel,RSSI`
+  
+## Preview 
+
+![Preview](/doc/Captura.png)
+
+## Project technologies
 
 - Node.js
 - React
 - Redux
+- Serialport
 - Electron
-- Webpack
 - Babel
 
 # License
