@@ -4,6 +4,30 @@ import store from "../store";
 import SerialPort from "serialport";
 import Readline from "@serialport/parser-readline";
 
+import fs from "fs";
+import getPath from "platform-folders";
+
+//let logFileName;
+//if (process.platform == "darwin") {
+fs.mkdir(
+  `${getPath("documents")}/electroniccats-trackingcat`,
+  { recursive: true },
+  function(err) {
+    if (err) {
+      return console.error(err);
+    }
+    console.log("Directory created successfully!");
+  }
+);
+/*
+  //logFileName = app.getPath("logs") + "/log.log";
+} else if (process.platform == "win32") {
+  //logFileName = app.getPath("userData") + "/log.log";
+} else if (process.platform == "linux") {
+  //logFileName = app.getPath("userData") + "/log.log";
+}
+console.log(logFileName);
+*/
 var parser = new Readline();
 
 let _state = store.getState();
@@ -35,12 +59,12 @@ export const getters = {
 
       while (true) {
         if (connection) {
-          sp.update()
+          sp.update();
           yield parser;
         } else {
           parser.resume();
           sp.pipe(parser);
-          
+
           yield sp;
         }
       }
@@ -62,12 +86,27 @@ export const actions = {
       console.log(err);
     });
 
+    let timeDate = "init";
+    let log;
+
     parser.on("data", function(data) {
+      let date = new Date();
+
       console.log("Send data port!");
       console.log(data.split(","));
-      let parser = data.split(",");  //* Parser data ,
+      let parser = data.split(","); //* Parser data ,
       store.dispatch(getDataPort(parser));
+      log = data + "\n";
+
+      fs.appendFile(
+        `${getPath("documents")}/electroniccats-trackingcat/log.txt`,
+        log + timeDate + ":   ",
+        function(error) {
+          if (error) throw error; // Handle the error just in case
+        }
+      );
+
+      timeDate = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}, hr: ${date.getHours()} min: ${date.getMinutes()} sec: ${date.getSeconds()}`;
     });
   }
 };
-
