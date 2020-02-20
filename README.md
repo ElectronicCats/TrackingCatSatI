@@ -31,6 +31,11 @@ Tracking CatSat permite conectar, monitorear y controlar por medio de un puerto 
 - Electron
 - Babel
 
+## LogFile
+ 
+ * the first time you run the application a new folder will be created within your `/Documents/electroniccats-trackingcat` and in a new file called `log.txt` where you will find all the history of data obtained by your CatSat
+
+
 # License
 
 Electronic Cats invests time and resources providing this open source design, please support Electronic Cats and open-source hardware by purchasing products from Electronic Cats!
