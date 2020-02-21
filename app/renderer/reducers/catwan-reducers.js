@@ -4,7 +4,8 @@ import {
   SET_SERIAL_PORTS,
   SENT_COMMAND,
   INCREMENT_EPOCH,
-  SWITCH_MOCK_OBC
+  SWITCH_MOCK_OBC,
+  CLEAR_GRAPH
 } from "../actions/action-types";
 
 const initialState = {
@@ -15,6 +16,11 @@ const initialState = {
       lng: -102.31658777777777,
       zoom: 18
     },
+    graphTemperature: [],
+    graphMagnetometer: [],
+    graphAccelerometer: [],
+    graphGyroscope: [],
+    graphGPS: []
   },
   list_ports: {
     listports: []
@@ -29,6 +35,7 @@ const initialState = {
         - we only ever append to the state
 */
 const rootReducer = (state = initialState, action) => {
+  console.log(action.type);
   switch (action.type) {
     case SET_SERIAL_PORTS:
       console.log("Data count: ", state.list_ports);
@@ -39,6 +46,15 @@ const rootReducer = (state = initialState, action) => {
         }
       };
     case GET_DATA_PORTS:
+      console.log("GET_DATA_PORTS ~REDUCER.JS");
+      return {
+        ...state,
+        data_port: {
+          ...action.payload
+        }
+      };
+    case CLEAR_GRAPH:
+      console.log("CLEAR_GRAPH ~REDUCER.JS");
       return {
         ...state,
         data_port: {
