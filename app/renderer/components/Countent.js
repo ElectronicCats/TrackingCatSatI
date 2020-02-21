@@ -182,7 +182,7 @@ class Countent extends Component {
             ]}
           />
         </nav>
-        <CountentWrapper/>
+        <CountentWrapper />
       </main>
     );
   }

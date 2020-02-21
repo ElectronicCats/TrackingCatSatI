@@ -43,7 +43,7 @@ export function clearGraph(nameGraph) {
       graphTemperature:
         nameGraph === "graphTemperature"
           ? []
-          :  state.data_port.graphTemperature,
+          : state.data_port.graphTemperature,
       graphMagnetometer:
         nameGraph === "graphMagnetometer"
           ? []

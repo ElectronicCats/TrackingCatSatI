@@ -42,7 +42,7 @@ class SerialPortConnection extends Component {
     this.setState({
       ...this.state,
       connect: true
-    })
+    });
 
     console.log(this.state.port);
   }
@@ -65,7 +65,11 @@ class SerialPortConnection extends Component {
       <Fragment>
         <section className="form-postdata">
           <div className="input-group">
-            <select className="input-group--select" name="port" onChange={this.handleChange}>
+            <select
+              className="input-group--select"
+              name="port"
+              onChange={this.handleChange}
+            >
               <option value="Serialport">Serialport</option>
               {ports}
             </select>
@@ -83,7 +87,6 @@ class SerialPortConnection extends Component {
             />
           </div>
         </section>
-       
       </Fragment>
     );
   }

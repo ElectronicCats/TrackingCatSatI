@@ -86,6 +86,4 @@ class SimpleLineChart extends PureComponent {
   }
 }
 
-export default connect(
-  clearGraph
-)(SimpleLineChart);
+export default connect(clearGraph)(SimpleLineChart);

@@ -17,8 +17,7 @@ class Countent extends Component {
           title="Temperature"
           barColor="#3E38F2"
           data={this.props.graphTemperature}
-          graphName = "graphTemperature"
-
+          graphName="graphTemperature"
         />
         <SimpleLineChart
           dataKeyA="mx"
@@ -27,8 +26,7 @@ class Countent extends Component {
           title="Magnetometer"
           barColor="#3E38F2"
           data={this.props.graphMagnetometer}
-          graphName = "graphMagnetometer"
-          
+          graphName="graphMagnetometer"
         />
         <SimpleLineChart
           dataKeyA="ax"
@@ -37,8 +35,7 @@ class Countent extends Component {
           title="Accelerometer"
           barColor="#5C73F2"
           data={this.props.graphAccelerometer}
-          graphName = "graphAccelerometer"
-          
+          graphName="graphAccelerometer"
         />
         <SimpleLineChart
           dataKeyA="gx"
@@ -47,7 +44,7 @@ class Countent extends Component {
           title="Gyroscope"
           barColor="#829FD9"
           data={this.props.graphGyroscope}
-          graphName = "graphGyroscope"
+          graphName="graphGyroscope"
         />
         <SimpleLineChart
           dataKeyA="Height"
@@ -55,7 +52,7 @@ class Countent extends Component {
           title="GPS"
           barColor="#230A59"
           data={this.props.graphGPS}
-          graphName = "graphGPS"
+          graphName="graphGPS"
         />
       </div>
     );
@@ -68,7 +65,7 @@ const mapStateToProps = state => ({
   graphMagnetometer: state.data_port.graphMagnetometer,
   graphAccelerometer: state.data_port.graphAccelerometer,
   graphGyroscope: state.data_port.graphGyroscope,
-  graphGPS: state.data_port.graphGPS,
+  graphGPS: state.data_port.graphGPS
 });
 
 /* Magic to hook up the state to the props */
