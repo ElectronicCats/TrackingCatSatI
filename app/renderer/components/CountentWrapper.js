@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import MapComponent from "./MapComponent";
 import SimpleLineChart from "./Charts/SimpleLineChart";
+import LinearChart from "./Charts/LinearChart";
 
 import { connect } from "react-redux";
 import * as home_actions from "../actions/catwan-actions";
@@ -19,7 +20,7 @@ class Countent extends Component {
           data={this.props.graphTemperature}
           graphName="graphTemperature"
         />
-        <SimpleLineChart
+        <LinearChart
           dataKeyA="mx"
           dataKeyB="my"
           dataKeyC="mz"
@@ -28,7 +29,7 @@ class Countent extends Component {
           data={this.props.graphMagnetometer}
           graphName="graphMagnetometer"
         />
-        <SimpleLineChart
+        <LinearChart
           dataKeyA="ax"
           dataKeyB="ay"
           dataKeyC="az"
@@ -37,7 +38,7 @@ class Countent extends Component {
           data={this.props.graphAccelerometer}
           graphName="graphAccelerometer"
         />
-        <SimpleLineChart
+        <LinearChart
           dataKeyA="gx"
           dataKeyB="gy"
           dataKeyC="gz"
@@ -46,7 +47,7 @@ class Countent extends Component {
           data={this.props.graphGyroscope}
           graphName="graphGyroscope"
         />
-        <SimpleLineChart
+        <LinearChart
           dataKeyA="Height"
           dataKeyB="Speed"
           title="GPS"
