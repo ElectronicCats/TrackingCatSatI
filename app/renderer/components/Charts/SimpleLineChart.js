@@ -9,14 +9,34 @@ import {
   ResponsiveContainer
 } from "recharts";
 
+import { connect } from "react-redux";
+import { clearGraph } from "../../actions/catwan-actions";
+import store from "../../store";
+
 class SimpleLineChart extends PureComponent {
   static jsfiddleUrl = "https://jsfiddle.net/alidingling/c1rLyqj1/";
+
+  clearGraph(graphName) {
+    console.log(`clear graph ${graphName}`);
+    store.dispatch(clearGraph(graphName));
+  }
 
   render() {
     return (
       <Fragment>
-        <div className="title-card-column" Style={`background-color: ${this.props.barColor} !important;`}>
-          <p className="p-title-grph">{this.props.title} {/*<span onClick={} className="refresh--btn">clear</span>*/}</p>
+        <div
+          className="title-card-column"
+          Style={`background-color: ${this.props.barColor} !important;`}
+        >
+          <p className="p-title-grph">
+            {this.props.title}
+            <span
+              onClick={() => this.clearGraph(this.props.graphName)}
+              className="refresh--btn"
+            >
+              clear
+            </span>
+          </p>
         </div>
         <ResponsiveContainer height="400px" width="100%" aspect={4.0}>
           <AreaChart
@@ -66,4 +86,6 @@ class SimpleLineChart extends PureComponent {
   }
 }
 
-export default SimpleLineChart;
+export default connect(
+  clearGraph
+)(SimpleLineChart);
