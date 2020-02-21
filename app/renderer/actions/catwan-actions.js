@@ -67,15 +67,9 @@ export function getDataPort(data) {
   state.data_port.graphTemperature = [
     ...state.data_port.graphTemperature,
     {
-      name: "temp",
-      temp: data[1] !== undefined ? data[1] : 0
-    },
-    {
-      name: "hum %",
-      hum: data[2] !== undefined ? data[2] : 0
-    },
-    {
-      name: "press",
+      name: "temperature",
+      temp: data[1] !== undefined ? data[1] : 0,
+      hum: data[2] !== undefined ? data[2] : 0,
       press: data[3] !== undefined ? data[3] : 0
     }
   ];
@@ -83,15 +77,9 @@ export function getDataPort(data) {
   state.data_port.graphMagnetometer = [
     ...state.data_port.graphMagnetometer,
     {
-      name: "mx",
-      mx: data[5] !== undefined ? data[5] : 0
-    },
-    {
-      name: "my",
-      my: data[6] !== undefined ? data[6] : 0
-    },
-    {
-      name: "mz",
+      name: "Magnetometer",
+      mx: data[5] !== undefined ? data[5] : 0,
+      my: data[6] !== undefined ? data[6] : 0,
       mz: data[7] !== undefined ? data[7] : 0
     }
   ];
@@ -99,15 +87,9 @@ export function getDataPort(data) {
   state.data_port.graphAccelerometer = [
     ...state.data_port.graphAccelerometer,
     {
-      name: "ax",
-      ax: data[8] !== undefined ? data[8] : 0
-    },
-    {
-      name: "ay",
-      ay: data[9] !== undefined ? data[9] : 0
-    },
-    {
-      name: "az",
+      name: "Accelerometer",
+      ax: data[8] !== undefined ? data[8] : 0,
+      ay: data[9] !== undefined ? data[9] : 0,
       az: data[10] !== undefined ? data[10] : 0
     }
   ];
@@ -115,15 +97,9 @@ export function getDataPort(data) {
   state.data_port.graphGyroscope = [
     ...state.data_port.graphGyroscope,
     {
-      name: "gx",
-      gx: data[11] !== undefined ? data[11] : 0
-    },
-    {
-      name: "gy",
-      gy: data[12] !== undefined ? data[12] : 0
-    },
-    {
-      name: "gz",
+      name: "Gyroscope",
+      gx: data[11] !== undefined ? data[11] : 0,
+      gy: data[12] !== undefined ? data[12] : 0,
       gz: data[13] !== undefined ? data[13] : 0
     }
   ];
@@ -132,11 +108,8 @@ export function getDataPort(data) {
   state.data_port.graphGPS = [
     ...state.data_port.graphGPS,
     {
-      name: "Height",
-      Height: data[16] !== undefined ? data[16] : 0
-    },
-    {
-      name: "Speed",
+      name: "GPS",
+      Height: data[16] !== undefined ? data[16] : 0,
       Speed: data[17] !== undefined ? data[17] : 0
     }
   ];
