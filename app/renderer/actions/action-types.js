@@ -9,3 +9,4 @@ export const GET_DATA_PORTS = "GET_PORTS";
 export const SET_SERIAL_PORTS = "SET_SERIAL_PORTS";
 export const SEND_COMMAND = "SEND_COMMAND";
 export const SENT_COMMAND = "SENT_COMMAND";
+export const CLEAR_GRAPH = "CLEAR_GRAPH";
