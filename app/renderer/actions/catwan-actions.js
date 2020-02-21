@@ -2,14 +2,14 @@ import {
   GET_DATA_PORTS,
   SET_SERIAL_PORTS,
   SEND_COMMAND,
-  SENT_COMMAND,
-  INCREMENT_EPOCH
-} from "./action-types"; 
+  CLEAR_GRAPH
+} from "./action-types";
 import hash from "object-hash";
 import store from "../store";
 
 function get_epoch() {
   let state = store.getState();
+  console.log(state.data_port.graphGPS);
   return state.epoch;
 }
 
@@ -25,15 +25,47 @@ export function setSerialPorts(listports) {
   };
 }
 
-let graphTemperature = [];
-let graphMagnetometer = [];
-let graphAccelerometer = [];
-let graphGyroscope = [];
-let graphGPS = [];
+export function clearGraph(nameGraph) {
+  let state = store.getState();
+  console.log(nameGraph);
+  return {
+    type: CLEAR_GRAPH,
+    payload: {
+      data_type: CLEAR_GRAPH,
+      id: hash({ timestamp: Date() }),
+      data: state.data_port.data,
+      position: {
+        lat:
+          state.data_port.data[14] !== undefined ? state.data_port.data[14] : 0,
+        lng:
+          state.data_port.data[15] !== undefined ? state.data_port.data[15] : 0
+      },
+      graphTemperature:
+        nameGraph === "graphTemperature"
+          ? []
+          :  state.data_port.graphTemperature,
+      graphMagnetometer:
+        nameGraph === "graphMagnetometer"
+          ? []
+          : state.data_port.graphMagnetometer,
+      graphAccelerometer:
+        nameGraph === "graphAccelerometer"
+          ? []
+          : state.data_port.graphAccelerometer,
+      graphGyroscope:
+        nameGraph === "graphGyroscope" ? [] : state.data_port.graphGyroscope,
+      graphGPS: nameGraph === "graphGPS" ? [] : state.data_port.graphGPS,
+      epoch_received: get_epoch()
+    }
+  };
+}
 
 export function getDataPort(data) {
-  graphTemperature = [
-    ...graphTemperature,
+  let state = store.getState();
+  console.log(state.data_port.graphGPS);
+
+  state.data_port.graphTemperature = [
+    ...state.data_port.graphTemperature,
     {
       name: "temp",
       temp: data[1] !== undefined ? data[1] : 0
@@ -48,8 +80,8 @@ export function getDataPort(data) {
     }
   ];
 
-  graphMagnetometer = [
-    ...graphMagnetometer,
+  state.data_port.graphMagnetometer = [
+    ...state.data_port.graphMagnetometer,
     {
       name: "mx",
       mx: data[5] !== undefined ? data[5] : 0
@@ -64,8 +96,8 @@ export function getDataPort(data) {
     }
   ];
 
-  graphAccelerometer = [
-    ...graphAccelerometer,
+  state.data_port.graphAccelerometer = [
+    ...state.data_port.graphAccelerometer,
     {
       name: "ax",
       ax: data[8] !== undefined ? data[8] : 0
@@ -79,8 +111,9 @@ export function getDataPort(data) {
       az: data[10] !== undefined ? data[10] : 0
     }
   ];
-  graphGyroscope = [
-    ...graphGyroscope,
+
+  state.data_port.graphGyroscope = [
+    ...state.data_port.graphGyroscope,
     {
       name: "gx",
       gx: data[11] !== undefined ? data[11] : 0
@@ -94,8 +127,10 @@ export function getDataPort(data) {
       gz: data[13] !== undefined ? data[13] : 0
     }
   ];
-  graphGPS = [
-    ...graphGPS,
+
+  //clearData === "graphGPS" ? graphGPS = [] :
+  state.data_port.graphGPS = [
+    ...state.data_port.graphGPS,
     {
       name: "Height",
       Height: data[16] !== undefined ? data[16] : 0
@@ -115,11 +150,11 @@ export function getDataPort(data) {
         lat: data[14] !== undefined ? data[14] : 0,
         lng: data[15] !== undefined ? data[15] : 0
       },
-      graphTemperature,
-      graphMagnetometer,
-      graphAccelerometer,
-      graphGyroscope,
-      graphGPS,
+      graphTemperature: state.data_port.graphTemperature,
+      graphMagnetometer: state.data_port.graphMagnetometer,
+      graphAccelerometer: state.data_port.graphAccelerometer,
+      graphGyroscope: state.data_port.graphGyroscope,
+      graphGPS: state.data_port.graphGPS,
       epoch_received: get_epoch()
     }
   };
@@ -135,12 +170,4 @@ export function sendCommand(cmd_input) {
       epoch_sent: get_epoch()
     }
   };
-}
-
-export function sentCommand(command) {
-  return { type: SENT_COMMAND, payload: command };
-}
-
-export function incrementEpoch() {
-  return { type: INCREMENT_EPOCH };
 }
