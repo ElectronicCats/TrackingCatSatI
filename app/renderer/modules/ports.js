@@ -3,31 +3,33 @@ import { setSerialPorts, getDataPort } from "../actions/catwan-actions";
 import store from "../store";
 import SerialPort from "serialport";
 import Readline from "@serialport/parser-readline";
+import { userInfo } from "os";
 
 import fs from "fs";
-import getPath from "platform-folders";
 
-//let logFileName;
-//if (process.platform == "darwin") {
-fs.mkdir(
-  `${getPath("documents")}/electroniccats-trackingcat`,
-  { recursive: true },
-  function(err) {
-    if (err) {
-      return console.error(err);
-    }
-    console.log("Directory created successfully!");
-  }
-);
-/*
-  //logFileName = app.getPath("logs") + "/log.log";
+let logFileName;
+if (process.platform == "darwin") {
+  console.log(userInfo().username);
+  logFileName = `/Users/${
+    userInfo().username
+  }/Documents/electroniccats-trackingcat`;
 } else if (process.platform == "win32") {
-  //logFileName = app.getPath("userData") + "/log.log";
+  console.log(userInfo().username);
+  logFileName = `C:\\Users\\${
+    userInfo().username
+  }\\Documents\\electroniccats-trackingcat`;
 } else if (process.platform == "linux") {
-  //logFileName = app.getPath("userData") + "/log.log";
+  console.log(userInfo().username);
+  logFileName = `/home/electroniccats-trackingcat`;
 }
+
+fs.mkdir(`${logFileName}`, { recursive: true }, function(err) {
+  if (err) {
+    return console.error(err);
+  }
+  console.log("Directory created successfully!");
+});
 console.log(logFileName);
-*/
 var parser = new Readline();
 
 let _state = store.getState();
@@ -98,13 +100,11 @@ export const actions = {
       store.dispatch(getDataPort(parser));
       log = data + "\n";
 
-      fs.appendFile(
-        `${getPath("documents")}/electroniccats-trackingcat/log.txt`,
-        log + timeDate + ":   ",
-        function(error) {
-          if (error) throw error; // Handle the error just in case
-        }
-      );
+      fs.appendFile(`${logFileName}/log.txt`, log + timeDate + ":   ", function(
+        error
+      ) {
+        if (error) throw error; // Handle the error just in case
+      });
 
       timeDate = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}, hr: ${date.getHours()} min: ${date.getMinutes()} sec: ${date.getSeconds()}`;
     });
