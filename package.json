@@ -80,7 +80,7 @@
     "electron": "^4.0.4",
     "electron-builder": "^20.0.7",
     "electron-devtools-installer": "^2.2.4",
-    "electron-mocha": "^6.0.1",
+    "electron-mocha": "^11.0.2",
     "electron-rebuild": "^1.8.8",
     "eslint": "^5.1.0",
     "eslint-config-prettier": "^3.1.0",
